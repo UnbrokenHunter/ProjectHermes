@@ -214,7 +214,7 @@ namespace TarodevController {
             if (Input.X != 0) {
                 // Set horizontal move speed
                 if (_allowCreeping) _speed.x = Mathf.MoveTowards(_speed.x, _frameClamp * Input.X * inputBalance, _acceleration * Time.fixedDeltaTime);
-                else _speed.x += Input.X * inputBalance * _acceleration * Time.fixedDeltaTime;
+                else _speed.x = Input.X * inputBalance * _acceleration * Time.fixedDeltaTime;
 
                 // Clamped by max frame movement
                 _speed.x = Mathf.Clamp(_speed.x, -_frameClamp, _frameClamp);
