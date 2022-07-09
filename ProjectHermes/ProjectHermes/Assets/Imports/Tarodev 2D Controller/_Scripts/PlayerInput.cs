@@ -1,35 +1,19 @@
 using UnityEngine;
-using UnityEngine.UI;
 #if (ENABLE_INPUT_SYSTEM)
 using UnityEngine.InputSystem;
 #endif
 
 namespace TarodevController {
     public class PlayerInput : MonoBehaviour {
-
-        // Sliders
-        [SerializeField] private Slider horizontalSlider;
-        [SerializeField] private Slider verticalSlider;
-        public int i = 0;
-        public float inputBalance;
-
 #if (ENABLE_LEGACY_INPUT_MANAGER)
         public FrameInput GatherInput() {
-
-            if (i !< verticalSlider.maxValue)
-			{
-                i++;
-			}
-
-
             return new FrameInput {
-                JumpDown = verticalSlider.value > 0,
-
-                JumpHeld = i < verticalSlider.value,
+                JumpDown = Input.GetButtonDown("Jump"),
+                JumpHeld = Input.GetButton("Jump"),
                 DashDown = Input.GetButtonDown("Dash"),
 
-                X = horizontalSlider.value,
-                //Y = Input.GetAxisRaw("Vertical")
+                X = Input.GetAxisRaw("Horizontal"),
+                Y = Input.GetAxisRaw("Vertical")
             };
         }
 #elif (ENABLE_INPUT_SYSTEM)

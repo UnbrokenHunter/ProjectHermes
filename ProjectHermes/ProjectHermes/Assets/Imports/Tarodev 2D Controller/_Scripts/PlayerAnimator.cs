@@ -25,7 +25,6 @@ namespace TarodevController {
         private ParticleSystem.MinMaxGradient _currentGradient;
         private Vector2 _movement;
         private Vector2 _defaultSpriteSize;
-        private float inputBalance;
 
         void Awake() {
             _player = GetComponentInParent<IPlayerController>();
@@ -37,8 +36,6 @@ namespace TarodevController {
             _player.OnDoubleJumping += OnDoubleJumping;
             _player.OnDashingChanged += OnDashing;
             _player.OnCrouchingChanged += OnCrouching;
-            inputBalance = GetComponentInParent<PlayerInput>().inputBalance;
-
         }
 
 
@@ -58,7 +55,7 @@ namespace TarodevController {
         private void OnDashing(bool dashing) {
             if (dashing) {
                 _dashParticles.Play();
-                _dashRingTransform.up = new Vector3(_player.Input.X * inputBalance, _player.Input.Y);
+                _dashRingTransform.up = new Vector3(_player.Input.X, _player.Input.Y);
                 _dashRingParticles.Play();
                 _source.PlayOneShot(_dashClip);
             }
@@ -119,13 +116,13 @@ namespace TarodevController {
         void Update() {
             if (_player == null) return;
 
-            var inputPoint = Mathf.Abs(_player.Input.X * inputBalance);
+            var inputPoint = Mathf.Abs(_player.Input.X);
 
             // Flip the sprite
-            if (_player.Input.X * inputBalance != 0) transform.localScale = new Vector3(_player.Input.X * inputBalance > 0 ? 1 : -1, 1, 1);
+            if (_player.Input.X != 0) transform.localScale = new Vector3(_player.Input.X > 0 ? 1 : -1, 1, 1);
 
             // Lean while running
-            var targetRotVector = new Vector3(0, 0, Mathf.Lerp(-_maxTilt, _maxTilt, Mathf.InverseLerp(-1, 1, _player.Input.X * inputBalance)));
+            var targetRotVector = new Vector3(0, 0, Mathf.Lerp(-_maxTilt, _maxTilt, Mathf.InverseLerp(-1, 1, _player.Input.X)));
             _anim.transform.rotation = Quaternion.RotateTowards(_anim.transform.rotation, Quaternion.Euler(targetRotVector), _tiltSpeed * Time.deltaTime);
 
             // Speed up idle while running

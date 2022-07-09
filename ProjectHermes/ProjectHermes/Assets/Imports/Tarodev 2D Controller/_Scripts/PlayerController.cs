@@ -1,8 +1,6 @@
 using System;
 using System.Collections.Generic;
-using Sirenix.OdinInspector;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace TarodevController {
     /// <summary>
@@ -14,7 +12,7 @@ namespace TarodevController {
     /// </summary>
     [RequireComponent(typeof(BoxCollider2D), typeof(Rigidbody2D))]
     public class PlayerController : MonoBehaviour, IPlayerController {
-        [FoldoutGroup("ALLOWS")] [SerializeField] private bool _allowDoubleJump, _allowDash, _allowCrouch;
+        [SerializeField] private bool _allowDoubleJump, _allowDash, _allowCrouch;
 
         // Public for external hooks
         public FrameInput Input { get; private set; }
@@ -32,7 +30,6 @@ namespace TarodevController {
         private Vector2 _velocity;
         private Vector2 _speed;
         private int _fixedFrame;
-        private float inputBalance;
 
         void Awake() {
             _rb = GetComponent<Rigidbody2D>();
@@ -41,7 +38,6 @@ namespace TarodevController {
 
             _defaultColliderSize = _collider.size;
             _defaultColliderOffset = _collider.offset;
-            inputBalance = _input.inputBalance;
         }
 
         private void Update() => GatherInput();
@@ -81,8 +77,8 @@ namespace TarodevController {
 
         #region Collisions
 
-        [BoxGroup("COLLISION")] [SerializeField] private LayerMask _groundLayer;
-        [BoxGroup("COLLISION")] [SerializeField] private float _detectionRayLength = 0.1f;
+        [Header("COLLISION")] [SerializeField] private LayerMask _groundLayer;
+        [SerializeField] private float _detectionRayLength = 0.1f;
         private RaycastHit2D[] _hitsDown = new RaycastHit2D[3];
         private RaycastHit2D[] _hitsUp = new RaycastHit2D[1];
         private RaycastHit2D[] _hitsLeft = new RaycastHit2D[1];
@@ -147,10 +143,10 @@ namespace TarodevController {
 
         #region Crouch
 
-        [SerializeField, BoxGroup("CROUCH")] private float _crouchSizeModifier = 0.5f;
-        [SerializeField, BoxGroup("CROUCH")] private float _crouchSpeedModifier = 0.1f;
-        [SerializeField, BoxGroup("CROUCH")] private int _crouchSlowdownFrames = 50;
-        [SerializeField, BoxGroup("CROUCH")] private float _immediateCrouchSlowdownThreshold = 0.1f;
+        [SerializeField, Header("CROUCH")] private float _crouchSizeModifier = 0.5f;
+        [SerializeField] private float _crouchSpeedModifier = 0.1f;
+        [SerializeField] private int _crouchSlowdownFrames = 50;
+        [SerializeField] private float _immediateCrouchSlowdownThreshold = 0.1f;
         private Vector2 _defaultColliderSize, _defaultColliderOffset;
         private float _velocityOnCrouch;
         private bool _crouching;
@@ -201,26 +197,26 @@ namespace TarodevController {
 
         #region Horizontal
 
-        [BoxGroup("WALKING")] [SerializeField] private float _acceleration = 120;
-        [BoxGroup("WALKING")] [SerializeField] private float _moveClamp = 13;
-        [BoxGroup("WALKING")] [SerializeField] private float _deceleration = 60f;
-        [BoxGroup("WALKING")] [SerializeField] private float _apexBonus = 100;
+        [Header("WALKING")] [SerializeField] private float _acceleration = 120;
+        [SerializeField] private float _moveClamp = 13;
+        [SerializeField] private float _deceleration = 60f;
+        [SerializeField] private float _apexBonus = 100;
 
-        [BoxGroup("WALKING")] [SerializeField] private bool _allowCreeping;
+        [SerializeField] private bool _allowCreeping;
 
         private float _frameClamp;
 
         private void CalculateHorizontal() {
             if (Input.X != 0) {
                 // Set horizontal move speed
-                if (_allowCreeping) _speed.x = Mathf.MoveTowards(_speed.x, _frameClamp * Input.X * inputBalance, _acceleration * Time.fixedDeltaTime);
-                else _speed.x = Input.X * inputBalance * _acceleration * Time.fixedDeltaTime;
+                if (_allowCreeping) _speed.x = Mathf.MoveTowards(_speed.x, _frameClamp * Input.X, _acceleration * Time.fixedDeltaTime);
+                else _speed.x += Input.X * _acceleration * Time.fixedDeltaTime;
 
                 // Clamped by max frame movement
                 _speed.x = Mathf.Clamp(_speed.x, -_frameClamp, _frameClamp);
 
                 // Apply bonus at the apex of a jump
-                var apexBonus = Mathf.Sign(Input.X * inputBalance) * _apexBonus * _apexPoint;
+                var apexBonus = Mathf.Sign(Input.X) * _apexBonus * _apexPoint;
                 _speed.x += apexBonus * Time.fixedDeltaTime;
             }
             else {
@@ -238,10 +234,10 @@ namespace TarodevController {
 
         #region Gravity
 
-        [BoxGroup("GRAVITY")] [SerializeField] private float _fallClamp = -60f;
-        [BoxGroup("GRAVITY")] [SerializeField] private float _minFallSpeed = 80f;
-        [BoxGroup("GRAVITY")] [SerializeField] private float _maxFallSpeed = 160f;
-        [BoxGroup("GRAVITY")] [SerializeField, Range(0, -10)] private float _groundingForce = -1.5f;
+        [Header("GRAVITY")] [SerializeField] private float _fallClamp = -60f;
+        [SerializeField] private float _minFallSpeed = 80f;
+        [SerializeField] private float _maxFallSpeed = 160f;
+        [SerializeField, Range(0, -10)] private float _groundingForce = -1.5f;
         private float _fallSpeed;
         
         private void CalculateGravity() {
@@ -279,11 +275,11 @@ namespace TarodevController {
 
         #region Jump
 
-        [BoxGroup("JUMPING")] [SerializeField] private float _jumpHeight = 35;
-        [BoxGroup("JUMPING")] [SerializeField] private float _jumpApexThreshold = 40f;
-        [BoxGroup("JUMPING")] [SerializeField] private int _coyoteTimeThreshold = 7;
-        [BoxGroup("JUMPING")] [SerializeField] private int _jumpBuffer = 7;
-        [BoxGroup("JUMPING")] [SerializeField] private float _jumpEndEarlyGravityModifier = 3;
+        [Header("JUMPING")] [SerializeField] private float _jumpHeight = 35;
+        [SerializeField] private float _jumpApexThreshold = 40f;
+        [SerializeField] private int _coyoteTimeThreshold = 7;
+        [SerializeField] private int _jumpBuffer = 7;
+        [SerializeField] private float _jumpEndEarlyGravityModifier = 3;
         private bool _jumpToConsume;
         private bool _coyoteUsable;
         private bool _executedBufferedJump;
@@ -320,7 +316,6 @@ namespace TarodevController {
 
             // Jump if: grounded or within coyote threshold || sufficient jump buffer
             if ((_jumpToConsume && CanUseCoyote) || HasBufferedJump) {
-                _input.i = 0;
                 _speed.y = _jumpHeight;
                 _endedJumpEarly = false;
                 _coyoteUsable = false;
@@ -340,9 +335,9 @@ namespace TarodevController {
 
         #region Dash
 
-        [BoxGroup("DASH")] [SerializeField] private float _dashPower = 30;
-        [BoxGroup("DASH")] [SerializeField] private int _dashLength = 6;
-        [BoxGroup("DASH")] [SerializeField] private float _dashEndHorizontalMultiplier = 0.25f;
+        [Header("DASH")] [SerializeField] private float _dashPower = 30;
+        [SerializeField] private int _dashLength = 6;
+        [SerializeField] private float _dashEndHorizontalMultiplier = 0.25f;
         private float _startedDashing;
         private bool _canDash;
         private Vector2 _dashVel;
@@ -353,7 +348,7 @@ namespace TarodevController {
         void CalculateDash() {
             if (!_allowDash) return;
             if (_dashToConsume && _canDash && !_crouching) {
-                var vel = new Vector2(Input.X * inputBalance, _grounded && Input.Y < 0 ? 0 : Input.Y).normalized;
+                var vel = new Vector2(Input.X, _grounded && Input.Y < 0 ? 0 : Input.Y).normalized;
                 if (vel == Vector2.zero) {
                     _dashToConsume = false;
                     return;
@@ -454,7 +449,7 @@ namespace TarodevController {
             }
         }
 
-        [BoxGroup("EFFECTORS")] [SerializeField] private float _forceDecay = 1;
+        [Header("EFFECTORS")] [SerializeField] private float _forceDecay = 1;
         private Vector2 _forceBuildup;
 
         public void AddForce(Vector2 force, PlayerForce mode = PlayerForce.Burst, bool cancelMovement = true) {
