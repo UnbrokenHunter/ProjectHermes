@@ -23,13 +23,13 @@ MonoBehaviour:
   CrouchSlowdownFrames: 20
   CrouchBufferCheck: 0
   JumpPower: 36
-  AllowDoubleJump: 1
+  AllowDoubleJump: 0
   MaxFallSpeed: 40
   FallSpeed: 110
   JumpEndEarlyGravityModifier: 3
   CoyoteFrames: 7
   JumpBufferFrames: 7
-  AllowDash: 1
+  AllowDash: 0
   DashVelocity: 50
   DashDurationFrames: 5
   DashEndHorizontalMultiplier: 0.25

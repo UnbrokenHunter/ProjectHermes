@@ -7,7 +7,7 @@ using TarodevController;
 
 namespace ProjectHermes
 {
-	public class SliderForces : MonoBehaviour
+	public class SliderForces : PlatformBase
 	{
 
 		[SerializeField] private float force = 5;
@@ -18,7 +18,7 @@ namespace ProjectHermes
 		{
 			if (other.gameObject.TryGetComponent(out IPlayerController controller))
 			{
-				controller.ApplyVelocity(new Vector2(force * slider.value, 0), PlayerForce.Burst);
+				MovePlayer(new Vector2(force * slider.value, 0));
 			}
 			else if (other.gameObject.tag == "Moveable Object")
 			{
