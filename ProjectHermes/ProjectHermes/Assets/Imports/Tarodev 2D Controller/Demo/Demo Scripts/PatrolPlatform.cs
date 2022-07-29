@@ -1,21 +1,22 @@
+using System;
+using TarodevController;
 using UnityEngine;
 
-namespace TarodevController {
-    public class PatrolPlatform : PlatformBase {
+namespace Tarodev {
+    public class PatrolPlatform : MonoBehaviour, IPlayerEffector {
+        [SerializeField] private Rigidbody2D _rb;
         [SerializeField] private Vector2[] _points;
         [SerializeField] private float _speed = 1;
         [SerializeField] private bool _looped;
 
 
-        private Rigidbody2D _rb;
         private Vector2 _startPos;
         private int _index;
         private Vector2 Pos => _rb.position;
-        private Vector2 _lastPos;
+        private Vector2 _change, _lastPos;
         private bool _ascending;
 
         private void Awake() {
-            _rb = GetComponent<Rigidbody2D>();
             _startPos = _rb.position;
         }
 
@@ -27,9 +28,7 @@ namespace TarodevController {
             if (Pos == target) {
                 _index = _ascending ? _index + 1 : _index - 1;
                 if (_index >= _points.Length) {
-                    if (_looped) {
-                        _index = 0;
-                    }
+                    if (_looped) _index = 0;
                     else {
                         _ascending = false;
                         _index--;
@@ -41,10 +40,12 @@ namespace TarodevController {
                 }
             }
 
-            var change = _lastPos - newPos;
+            _change = _lastPos - newPos;
             _lastPos = newPos;
+        }
 
-            MovePlayer(change);
+        public Vector2 EvaluateEffector() {
+            return -_change; // * _speed;
         }
 
         private void OnDrawGizmosSelected() {
