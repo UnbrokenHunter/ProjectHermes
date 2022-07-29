@@ -1,7 +1,6 @@
 // ReSharper disable ClassWithVirtualMembersNeverInherited.Global
 
 using System;
-using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace TarodevController {
@@ -102,8 +101,8 @@ namespace TarodevController {
             _currentExternalVelocity = Vector2.MoveTowards(_currentExternalVelocity, Vector2.zero, _stats.ExternalVelocityDecay * Time.fixedDeltaTime);
 
             CheckCollisions();
-            //HandleAttacking();
-            //HandleCrouching();
+            HandleAttacking();
+            HandleCrouching();
             HandleHorizontal();
             HandleJump();
             HandleDash();
