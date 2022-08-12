@@ -6,6 +6,7 @@ TagManager:
   tags:
   - FireballUpgrade
   - UI
+  - Enemy
   layers:
   - Default
   - TransparentFX

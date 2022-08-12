@@ -22,6 +22,8 @@ namespace ProjectHermes
 		[SerializeField] private GameObject fireballPrefab;
 		[SerializeField] private Transform firePoint;
 		[SerializeField] private Vector2 firePointPosition;
+		[SerializeField] private Material regularMat;
+		[SerializeField] private Material fireMat;
 
 		[SerializeField] private float fireballSpeed;
 		[SerializeField] private float fireballVerticalSpeed;
@@ -69,6 +71,7 @@ namespace ProjectHermes
 			yield return new WaitForSeconds(invincibilityTime);
 
 			isInvincible = false;
+			_renderer.material = regularMat;
 			_renderer.color = before;
 		}
 
@@ -103,6 +106,7 @@ namespace ProjectHermes
 			if(other.gameObject.tag == "FireballUpgrade")
 			{
                 isFireUpgraded = true;
+				_renderer.material = fireMat;
 				AudioManager.instance.Play("PowerUp");
 				Destroy(other.gameObject);
 			}

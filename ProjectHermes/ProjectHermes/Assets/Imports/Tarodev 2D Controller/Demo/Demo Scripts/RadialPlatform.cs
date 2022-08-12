@@ -8,6 +8,7 @@ namespace TarodevController {
         private Transform _t;
         private Vector3 _startPos;
         private Vector3 _lastPos;
+        private Vector3 otherPosition;
 
         private Vector3 Pos => _t.position;
 
@@ -20,12 +21,14 @@ namespace TarodevController {
             _t.position = _startPos + new Vector3(Mathf.Cos(Time.time * _speed), Mathf.Sin(Time.time * _speed)) * _size;
         }
 
-        private void FixedUpdate() {
+
+		private void FixedUpdate()
+        {
             var change = _lastPos - Pos;
 
             _lastPos = Pos;
 
-            MovePlayer(change);
+            MovePlayer(change);           
         }
 
 

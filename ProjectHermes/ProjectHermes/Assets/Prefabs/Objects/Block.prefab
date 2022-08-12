@@ -49,8 +49,10 @@ MonoBehaviour:
   BlockHitbox: {fileID: 3177654806325954294}
   anim: {fileID: 3177654806325954299}
   fishPrefab: {fileID: 2736071067771080649, guid: 2f22ca82c7b67a5499bb59dff364eca0, type: 3}
+  fireballPrefab: {fileID: 2739718840030068983, guid: 0dd2b41e168452343a33529300d15097, type: 3}
   doDestroy: 0
   hasFish: 1
+  hasFireball: 0
   animationLength: 0.05
   fishAnimationLength: 0.08
 --- !u!61 &3177654805087362043

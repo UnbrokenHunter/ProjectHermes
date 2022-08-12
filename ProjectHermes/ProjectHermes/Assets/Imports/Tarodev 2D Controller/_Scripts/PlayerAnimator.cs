@@ -40,9 +40,10 @@ namespace TarodevController {
 
         [SerializeField] private float _tileChangeSpeed = .05f;
         [SerializeField] private AudioClip[] _footstepClips;
-        private ParticleSystem.MinMaxGradient _currentGradient;
+        [SerializeField] private ParticleSystem.MinMaxGradient _currentGradient;
         private readonly RaycastHit2D[] _groundHits = new RaycastHit2D[2];
         private Vector2 _tiltVelocity;
+        public Vector3 slopeTilt;
 
         private void DetectGroundColor() {
             var hitCount = Physics2D.RaycastNonAlloc(transform.position, Vector3.down, _groundHits, 2);
@@ -67,7 +68,8 @@ namespace TarodevController {
             _moveParticles.transform.localScale = Vector3.MoveTowards(_moveParticles.transform.localScale, Vector3.one * speedPoint, 2 * Time.deltaTime);
 
             // Tilt with slopes
-            transform.up = Vector2.SmoothDamp(transform.up, _grounded ? _player.GroundNormal : Vector2.up, ref _tiltVelocity, _tileChangeSpeed);
+            slopeTilt = Vector2.SmoothDamp(transform.up, _grounded ? _player.GroundNormal : Vector2.up, ref _tiltVelocity, _tileChangeSpeed);
+            transform.up = slopeTilt;
         }
 
         private int _stepIndex;

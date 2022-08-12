@@ -23,6 +23,7 @@ namespace ProjectHermes
 			{
 				other.gameObject.GetComponent<StarController>().EnableStarEffect(starEffectLength);
 				print("Pickup Star");
+				Destroy(this.gameObject);
 			}
 		}
 

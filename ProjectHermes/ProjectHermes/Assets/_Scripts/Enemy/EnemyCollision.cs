@@ -45,6 +45,9 @@ namespace ProjectHermes
 		{
 			if(other.gameObject.tag == "Player")
 			{
+
+                AudioManager.instance.Play("KillEnemy");
+
                 // Bounce Player
                 other.gameObject.GetComponent<PlayerController>().ApplyVelocity(transform.up.normalized * _killBounceAmount, PlayerForce.Decay);
 
@@ -55,6 +58,8 @@ namespace ProjectHermes
 
             else if (other.gameObject.layer == 6)
             {
+
+                AudioManager.instance.Play("KillEnemy");
                 Destroy(other.gameObject);
                 _anim.Play("Death");
 

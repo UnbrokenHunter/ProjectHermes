@@ -17,7 +17,11 @@ namespace ProjectHermes
             {
                 if(other.GetComponent<StarController>().hasStarEffect)
 				{
-
+                    if(this.gameObject.tag == "Enemy")
+					{
+                        AudioManager.instance.Play("KillEnemy");
+                        Destroy(this.gameObject);
+					}
 				}
                 else if (other.GetComponent<FireballController>().isFireUpgraded)
                 {

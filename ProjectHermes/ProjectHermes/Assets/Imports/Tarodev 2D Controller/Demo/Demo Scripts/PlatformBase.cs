@@ -19,7 +19,7 @@ namespace TarodevController {
             if (_player) {
                 // This prevents jumping and moving from being locked
                 if (_player.velocity.magnitude >= _unlockThreshold) return;
-                _player.MovePosition(_player.position - change);
+                _player.MovePosition(_player.position - change);                
             }
         }
     }

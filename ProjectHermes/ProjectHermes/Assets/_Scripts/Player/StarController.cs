@@ -14,12 +14,15 @@ namespace ProjectHermes
         public bool hasStarEffect = false;
         private SpriteRenderer _renderer;
 
-		#endregion
+        [SerializeField] private Material starMat;
+        private Material previousMat;
+
+        #endregion
 
 
-		#region Methods
+        #region Methods
 
-		private void Awake()
+        private void Awake()
 		{
             _renderer = GetComponentInChildren<SpriteRenderer>();
 		}
@@ -29,6 +32,9 @@ namespace ProjectHermes
             hasStarEffect = true;
             starEffectLength = effectLength;
 
+            previousMat = _renderer.material;
+            _renderer.material = starMat;
+
             StartCoroutine(StarLength());
 
 		}
@@ -37,19 +43,8 @@ namespace ProjectHermes
 		{
             yield return new WaitForSeconds(starEffectLength);
             hasStarEffect = false;
+            _renderer.material = previousMat;
 		}
-
-        private void Update()
-        {        
-            if(hasStarEffect)
-			{
-                _renderer.color = new Color(Random.Range(1, 255), Random.Range(1, 255), Random.Range(1, 255));
-			}
-            else
-			{
-                _renderer.color = Color.white;
-			}
-        }
 
     	#endregion
 

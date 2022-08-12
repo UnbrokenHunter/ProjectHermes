@@ -13,8 +13,10 @@ namespace ProjectHermes
 		[SerializeField] private GameObject BlockHitbox;
 		[SerializeField] private Animator anim;
 		[SerializeField] private GameObject fishPrefab;
+		[SerializeField] private GameObject fireballPrefab;
 		[SerializeField] private bool doDestroy = true;
 		[SerializeField] private bool hasFish;
+		[SerializeField] private bool hasFireball;
 		[SerializeField] private float animationLength;
 		[SerializeField] private float fishAnimationLength;
 
@@ -40,6 +42,14 @@ namespace ProjectHermes
 					fish.GetComponentInChildren<SpriteRenderer>().sortingOrder = this.gameObject.GetComponentInChildren<SpriteRenderer>().sortingOrder - 1;
 					fish.GetComponent<FishScript>().FishFromBlock();
 					fish.GetComponent<BoxCollider2D>().enabled = false;
+				}
+
+				if(hasFireball)
+				{
+					GameObject fish = Instantiate(fireballPrefab, transform);
+					fish.transform.localPosition = new Vector3(0, 1, 0);
+					fish.GetComponentInChildren<SpriteRenderer>().sortingOrder = this.gameObject.GetComponentInChildren<SpriteRenderer>().sortingOrder - 1;
+
 				}
 
 				StartCoroutine(DestroyBlock());

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Acceleration: 24.7
   MaxSpeed: 8
-  Deceleration: 79.2
+  Deceleration: 81
   AirDecelerationPenalty: 0.24
   GroundingForce: -1.5
   AllowCreeping: 0

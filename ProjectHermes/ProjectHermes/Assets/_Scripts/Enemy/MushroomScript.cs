@@ -16,6 +16,7 @@ namespace ProjectHermes
         [SerializeField] private float bulletLifespan = 5;
         [SerializeField] private float shootingRate = 1;
         [SerializeField] private GameObject fireSpot;
+        [SerializeField] private float loadingDistance = 30;
         private Animator anim;
 
 		#endregion
@@ -40,23 +41,28 @@ namespace ProjectHermes
         }
 
         public void ShootBullet()
-		{
-            GameObject bullet = Instantiate(bulletPrefab);
-            bullet.transform.position = fireSpot.transform.position;
-            bullet.GetComponent<BulletScript>().bulletSpeed = bulletSpeed;
-            bullet.GetComponent<BulletScript>().bulletLifespan = bulletLifespan;
+        {
+            if (Vector2.Distance(GameObject.Find("Player").transform.position, this.gameObject.transform.position) < loadingDistance)
+            {
 
+                GameObject bullet = Instantiate(bulletPrefab);
+                bullet.transform.position = fireSpot.transform.position;
+                bullet.GetComponent<BulletScript>().bulletSpeed = bulletSpeed;
+                bullet.GetComponent<BulletScript>().bulletLifespan = bulletLifespan;
 
-            if (gameObject.transform.lossyScale.x > 0)
-			{
-                bullet.transform.localScale = new Vector3(-1, 1, 1);
-			}
-            else
-			{
-                bullet.GetComponent<BulletScript>().left = true;
-			}
+                AudioManager.instance.Play("ShootBullet");
 
-		}
+                if (gameObject.transform.lossyScale.x > 0)
+                {
+                    bullet.transform.localScale = new Vector3(-1, 1, 1);
+                }
+                else
+                {
+                    bullet.GetComponent<BulletScript>().left = true;
+                }
+
+            }
+        }
 
     	#endregion
 

@@ -175,6 +175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _killBounceAmount: 50
+  _anim: {fileID: 0}
 --- !u!114 &54772044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -518,6 +519,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _killBounceAmount: 50
+  _anim: {fileID: 0}
 --- !u!114 &111783910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1122,6 +1124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _killBounceAmount: 50
+  _anim: {fileID: 0}
 --- !u!114 &418740879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1876,7 +1879,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: a598f7dcfc66ea242be336540cd304ef, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -2292,6 +2295,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _killBounceAmount: 50
+  _anim: {fileID: 0}
 --- !u!114 &840400601
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2590,6 +2594,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _killBounceAmount: 50
+  _anim: {fileID: 0}
 --- !u!114 &867078515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3338,6 +3343,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _killBounceAmount: 50
+  _anim: {fileID: 0}
 --- !u!114 &986102067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7269,6 +7275,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _killBounceAmount: 50
+  _anim: {fileID: 0}
 --- !u!114 &1151466943
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7748,6 +7755,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _killBounceAmount: 50
+  _anim: {fileID: 0}
 --- !u!114 &1268892356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8848,6 +8856,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _killBounceAmount: 50
+  _anim: {fileID: 0}
 --- !u!114 &1680195105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9423,6 +9432,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _killBounceAmount: 50
+  _anim: {fileID: 0}
 --- !u!114 &1884965238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19465,6 +19475,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _killBounceAmount: 50
+  _anim: {fileID: 0}
 --- !u!114 &2016667220
 MonoBehaviour:
   m_ObjectHideFlags: 0
