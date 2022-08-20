@@ -106,17 +106,16 @@ namespace ProjectHermes
 
 #endregion
 
-#region Inspector Stuff
-		
-        private static IEnumerable Patrol_or_Coordinates = new ValueDropdownList<bool>()
-        {
-            { "Patrol", true },
-            { "Coordinates", false },
-        };
 
-#endregion
+        #region Inspector Stuff
+		
+            private static IEnumerable Patrol_or_Coordinates = new ValueDropdownList<bool>()
+            {
+                { "Patrol", true },
+                { "Coordinates", false },
+            };
+
+        #endregion
 
 	}
 }
-
-
