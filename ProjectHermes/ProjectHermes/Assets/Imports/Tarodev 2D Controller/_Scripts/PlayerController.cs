@@ -44,6 +44,7 @@ namespace TarodevController {
         private int _startedDashing;
         private Bounds _standingColliderBounds;
         private int _frameStartedCrouching;
+        [HideInInspector] public bool _goPipe;
 
         #region External
 
@@ -111,8 +112,8 @@ namespace TarodevController {
             HandleJump();
             HandleDash();
             HandleFall();
-
-            ApplyVelocity();
+            HandlePipe();
+			ApplyVelocity();
         }
 
         #region Collisions
@@ -161,11 +162,36 @@ namespace TarodevController {
 
         #endregion
 
-        #region Crouching
+        #region Pipe
 
-        protected virtual void HandleCrouching() {
-            var crouchCheck = _frameInput.Move.y <= _stats.CrouchInputThreshold;
-            if (crouchCheck != _crouching) SetCrouching(crouchCheck);
+        protected virtual void HandlePipe()
+        {
+            // If player is holding down enough, start entering the pipe
+			_goPipe = _frameInput.Move.y <= _stats.CrouchInputThreshold;
+
+		}
+
+        public void MovePlayerToPipe(Transform t, float lerpSpeed)
+        {
+            // When player starts to enter a pipe, move them to the middle of the pipe
+            transform.position = new Vector3(Mathf.Lerp(this.transform.position.x, t.position.x, lerpSpeed), transform.position.y, transform.position.z);
+
+            print("This " + this.transform.position.x);
+            print("Pipe " + t.position.x);
+            print(Mathf.Lerp(this.transform.position.x, t.position.x, lerpSpeed));
+        }
+
+
+		#endregion
+
+		#region Crouching
+
+		protected virtual void HandleCrouching() 
+        {
+            _goPipe = _frameInput.Move.y <= _stats.CrouchInputThreshold;
+            
+            
+            //if (crouchCheck != _crouching) SetCrouching(crouchCheck);
         }
 
         protected virtual void SetCrouching(bool active) {

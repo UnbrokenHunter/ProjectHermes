@@ -157,11 +157,27 @@ namespace TarodevController {
             AudioManager.instance.Play("FireballShoot");
         }
 
-        #endregion
+		#endregion
 
-        #region Animation
+		#region Pipe 
 
-        private float _lockedTill;
+		[Header("Enter Pipe")]
+		[SerializeField] private float _pipeAnimDuration = 0.1f;
+        [SerializeField] public bool _pipe;
+
+        public void PlayerEnterPipe()
+        {
+            // If player entering pipe, start the animation at the center of the pipes x transform
+            _pipe = true;
+        }
+
+
+
+		#endregion
+
+		#region Animation
+
+		private float _lockedTill;
 
         private void HandleAnimations() {
             var state = GetState();
@@ -169,6 +185,7 @@ namespace TarodevController {
             _jumpTriggered = false;
             _landed = false;
             _attacked = false;
+            _pipe = false;
 
             if (state == _currentState) return;
             _anim.CrossFade(state, 0, 0);
@@ -179,8 +196,9 @@ namespace TarodevController {
 
                 if(!fireballController.isFireUpgraded)
 				{
-                    // Priorities
-                    if (_attacked) return LockState(Attack, _attackAnimTime);
+					// Priorities
+					if (_pipe) return LockState(Pipe, _pipeAnimDuration);
+					if (_attacked) return LockState(Attack, _attackAnimTime);
                     if (_player.Crouching) return Crouch;
                     if (_landed) return LockState(Land, _landAnimDuration);
                     if (_jumpTriggered) return Jump;
@@ -191,7 +209,8 @@ namespace TarodevController {
                 else
 				{
                     // Priorities
-                    if (_attacked) return LockState(PlayerFireAttack, _attackAnimTime);
+                    if (_pipe) return LockState(PlayerFirePipe, _pipeAnimDuration);
+					if (_attacked) return LockState(PlayerFireAttack, _attackAnimTime);
                     if (_player.Crouching) return Crouch;
                     if (_landed) return LockState(PlayerFireLand, _landAnimDuration);
                     if (_jumpTriggered) return PlayerFireJump;
@@ -212,8 +231,9 @@ namespace TarodevController {
 
         private int _currentState;
 
-        private static readonly int Idle = Animator.StringToHash("Idle");
-        private static readonly int Walk = Animator.StringToHash("Walk");
+		private static readonly int Idle = Animator.StringToHash("Idle");
+		private static readonly int Pipe = Animator.StringToHash("Pipe");
+		private static readonly int Walk = Animator.StringToHash("Walk");
         private static readonly int Run = Animator.StringToHash("Run");
         private static readonly int Jump = Animator.StringToHash("Jump");
         private static readonly int Fall = Animator.StringToHash("Fall");
@@ -221,9 +241,10 @@ namespace TarodevController {
         private static readonly int Attack = Animator.StringToHash("Attack");
         private static readonly int Crouch = Animator.StringToHash("Crouch");
 
-        // Fire
-        private static readonly int PlayerFireIdle = Animator.StringToHash("PlayerFireIdle");
-        private static readonly int PlayerFireWalking = Animator.StringToHash("PlayerFireWalking");
+		// Fire
+		private static readonly int PlayerFireIdle = Animator.StringToHash("PlayerFireIdle");
+		private static readonly int PlayerFirePipe = Animator.StringToHash("PlayerFirePipe");
+		private static readonly int PlayerFireWalking = Animator.StringToHash("PlayerFireWalking");
         private static readonly int PlayerFireRun = Animator.StringToHash("PlayerFireRun");
         private static readonly int PlayerFireJump = Animator.StringToHash("PlayerFireJump");
         private static readonly int PlayerFireFall = Animator.StringToHash("PlayerFireFall");
