@@ -150,11 +150,16 @@ namespace TarodevController {
         [LabelWidth(250)]
         public float GrounderDistance = 0.1f;
 
-		#endregion
+        [BoxGroup("Stats/Split/Left/COLLISIONS")]
+        [Tooltip("Set this to the layer your player is on")]
+        [LabelWidth(250)]
+        public LayerMask PlayerLayer;
 
-		#region Attack
+        #endregion
 
-		[BoxGroup("Stats/Split/Right/ATTACK")]
+        #region Attack
+
+        [BoxGroup("Stats/Split/Right/ATTACK")]
         [Tooltip("The fixed frame cooldown of your players basic attack")]
         [LabelWidth(250)]
         public int AttackFrameCooldown = 6;

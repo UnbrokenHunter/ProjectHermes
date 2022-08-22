@@ -16,14 +16,20 @@ namespace ProjectHermes
         public bool isFireUpgraded = false;
 		public bool isInvincible = false;
 
+		[Title("Player Settings")]
+
 		[SerializeField] private Color deathFadeAmount;
 		[SerializeField] private float invincibilityTime = 0.5f;
+
+		[Title("Visuals")]
 
 		[SerializeField] private GameObject fireballPrefab;
 		[SerializeField] private Transform firePoint;
 		[SerializeField] private Vector2 firePointPosition;
 		[SerializeField] private Material regularMat;
 		[SerializeField] private Material fireMat;
+
+		[Title("Ability Settings")]
 
 		[SerializeField] private float fireballSpeed;
 		[SerializeField] private float fireballVerticalSpeed;

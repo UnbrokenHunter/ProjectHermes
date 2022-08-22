@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3177654805087362038}
   - component: {fileID: 3177654805087362037}
   - component: {fileID: 3177654805087362043}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Block
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,7 +139,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.0008011, y: 0.9359977}
+  m_Size: {x: 1, y: 0.935}
   m_EdgeRadius: 0
 --- !u!212 &3177654806325954298
 SpriteRenderer:

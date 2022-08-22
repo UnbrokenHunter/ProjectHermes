@@ -36,5 +36,8 @@ MonoBehaviour:
   DashDurationFrames: 5
   DashEndHorizontalMultiplier: 0.25
   GrounderDistance: 0.1
+  PlayerLayer:
+    serializedVersion: 2
+    m_Bits: 1
   AttackFrameCooldown: 15
   ExternalVelocityDecay: 186

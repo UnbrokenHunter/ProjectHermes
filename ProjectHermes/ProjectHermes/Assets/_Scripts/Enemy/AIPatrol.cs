@@ -31,10 +31,12 @@ namespace ProjectHermes
 
 		[Header("Walk Variables")]
 		[SerializeField] private float _walkSpeed = 50;
+		[SerializeField] private bool _startLeft = false;
 
 		[Header("Physics Variables")]
 		[SerializeField] private Transform groundCheckPos;
-		[SerializeField] [Range(0, .5f)] private float _groundCheckRadius = .01f;
+		[SerializeField] private Transform wallCheckPos;
+		[SerializeField] [Range(0, .5f)] private float _checkRadius = .01f;
 		[SerializeField] private LayerMask _layerMask;
 		
 
@@ -50,6 +52,8 @@ namespace ProjectHermes
 		{
 			mustPatrol = true;
 			_rb = GetComponent<Rigidbody2D>();
+
+			if(_startLeft) Flip();
 		}
 
 		private void FixedUpdate()
@@ -57,14 +61,17 @@ namespace ProjectHermes
 			if(mustPatrol)
 			{
 				Patrol();
-				if(isPatrol) mustFlip = !Physics2D.OverlapCircle(groundCheckPos.position, _groundCheckRadius, _layerMask);
-				else 
+				if (isPatrol)
+				{
+					mustFlip = !Physics2D.OverlapCircle(groundCheckPos.position, _checkRadius, _layerMask) 
+						|| Physics2D.OverlapCircle(wallCheckPos.position, _checkRadius, _layerMask);
+				}
+				if(!isPatrol)
 				{
 					flipTimer += Time.deltaTime;
 					if(flipTimer >= walkDistance)
 					{
 						Flip();
-						flipTimer = 0;
 					}
 				}
 			}
@@ -84,6 +91,7 @@ namespace ProjectHermes
 		private void Flip()
 		{
 			mustPatrol = false;
+			flipTimer = 0;
 			transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
 			_walkSpeed *= -1;
 			mustPatrol = true;
