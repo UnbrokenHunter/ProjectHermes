@@ -167,6 +167,7 @@ namespace TarodevController {
         protected virtual void HandlePipe()
         {
             // If player is holding down enough, start entering the pipe
+
 			_goPipe = _frameInput.Move.y <= _stats.CrouchInputThreshold;
 
 		}
@@ -174,11 +175,8 @@ namespace TarodevController {
         public void MovePlayerToPipe(Transform t, float lerpSpeed)
         {
             // When player starts to enter a pipe, move them to the middle of the pipe
+            
             transform.position = new Vector3(Mathf.Lerp(this.transform.position.x, t.position.x, lerpSpeed), transform.position.y, transform.position.z);
-
-            print("This " + this.transform.position.x);
-            print("Pipe " + t.position.x);
-            print(Mathf.Lerp(this.transform.position.x, t.position.x, lerpSpeed));
         }
 
 

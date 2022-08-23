@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PlayerFirePipe
+  m_Name: PlayerFirePipeUp
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,21 +20,21 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: 0, y: 0, z: 0}
-        inSlope: {x: 0, y: -1.8385265, z: 0}
-        outSlope: {x: 0, y: -1.8385265, z: 0}
+        value: {x: 0, y: -4.997429, z: 0}
+        inSlope: {x: 0, y: 2.2700703, z: 0}
+        outSlope: {x: 0, y: 2.2700703, z: 0}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
-        outWeight: {x: 0.33333334, y: 0.17612381, z: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.18306771, z: 0.33333334}
       - serializedVersion: 3
         time: 2.5
-        value: {x: 0, y: -4.997429, z: 0}
-        inSlope: {x: 0, y: -2.2700703, z: 0}
-        outSlope: {x: 0, y: -2.2700703, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        inSlope: {x: 0, y: 1.8385265, z: 0}
+        outSlope: {x: 0, y: 1.8385265, z: 0}
         tangentMode: 0
         weightedMode: 0
-        inWeight: {x: 0.33333334, y: 0.18306771, z: 0.33333334}
+        inWeight: {x: 0.33333334, y: 0.17612381, z: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -139,21 +139,21 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0
-        inSlope: -1.8385265
-        outSlope: -1.8385265
+        value: -4.997429
+        inSlope: 2.2700703
+        outSlope: 2.2700703
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
-        outWeight: 0.17612381
+        outWeight: 0.18306771
       - serializedVersion: 3
         time: 2.5
-        value: -4.997429
-        inSlope: -2.2700703
-        outSlope: -2.2700703
+        value: 0
+        inSlope: 1.8385265
+        outSlope: 1.8385265
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0.18306771
+        inWeight: 0.17612381
         outWeight: 0.33333334
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -193,4 +193,11 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 1
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 2.5
+    functionName: ReenableRigidbody
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

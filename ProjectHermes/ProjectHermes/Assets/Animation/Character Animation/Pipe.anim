@@ -21,29 +21,29 @@ AnimationClip:
       - serializedVersion: 3
         time: 0
         value: {x: 0, y: 0, z: 0}
-        inSlope: {x: 0, y: -5.3841205, z: 0}
-        outSlope: {x: 0, y: -5.3841205, z: 0}
+        inSlope: {x: 0, y: -1.8385265, z: 0}
+        outSlope: {x: 0, y: -1.8385265, z: 0}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
-        outWeight: {x: 0.33333334, y: 0.13374391, z: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.17612381, z: 0.33333334}
       - serializedVersion: 3
-        time: 1.35
-        value: {x: 0, y: -6.1924815, z: 0}
-        inSlope: {x: 0, y: -5.559747, z: 0}
-        outSlope: {x: 0, y: -5.559747, z: 0}
+        time: 2.5
+        value: {x: 0, y: -4.997429, z: 0}
+        inSlope: {x: 0, y: -2.2700703, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
         weightedMode: 0
-        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+        inWeight: {x: 0.33333334, y: 0.18306771, z: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
-        time: 1.3666667
-        value: {x: 0, y: -6.285713, z: 0}
-        inSlope: {x: 0, y: -5.6282735, z: 0}
-        outSlope: {x: 0, y: -5.6282735, z: 0}
+        time: 2.5166667
+        value: {x: 0, y: -4.997429, z: 0}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
         weightedMode: 0
-        inWeight: {x: 0.33333334, y: 0.15064132, z: 0.33333334}
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -99,12 +99,12 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1.3666667
+    m_StopTime: 2.5166667
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
     m_HasAdditiveReferencePose: 0
-    m_LoopTime: 1
+    m_LoopTime: 0
     m_LoopBlend: 0
     m_LoopBlendOrientation: 0
     m_LoopBlendPositionY: 0
@@ -128,7 +128,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1.35
+        time: 2.5166667
         value: 0
         inSlope: 0
         outSlope: 0
@@ -149,20 +149,20 @@ AnimationClip:
       - serializedVersion: 3
         time: 0
         value: 0
-        inSlope: -5.3841205
-        outSlope: -5.3841205
+        inSlope: -1.8385265
+        outSlope: -1.8385265
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
-        outWeight: 0.13374391
+        outWeight: 0.17612381
       - serializedVersion: 3
-        time: 1.3666667
-        value: -6.285713
-        inSlope: -5.6282735
-        outSlope: -5.6282735
+        time: 2.5
+        value: -4.997429
+        inSlope: -2.2700703
+        outSlope: -2.2700703
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0.15064132
+        inWeight: 0.18306771
         outWeight: 0.33333334
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -184,7 +184,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1.35
+        time: 2.5166667
         value: 0
         inSlope: 0
         outSlope: 0
@@ -202,4 +202,11 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 1
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 2.5
+    functionName: PlayerExitPipe
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
