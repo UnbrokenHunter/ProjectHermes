@@ -59,6 +59,8 @@ namespace ProjectHermes
 
                         other.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
 
+                        other.gameObject.GetComponentInChildren<TrailRenderer>().enabled = false;
+
                         other.GetComponentInChildren<PlayerAnimator>()._nextPipe = _exitPipe;
                     }
                 }

@@ -180,10 +180,11 @@ namespace TarodevController {
             _pipeUp = true;
         }
 
+        // Re-enables everything after going through a pipe
         public void ReenableRigidbody()
 		{
             this.transform.parent.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
-
+            this.gameObject.GetComponentInChildren<TrailRenderer>().enabled = true;
 
         }
 

@@ -11,11 +11,12 @@ namespace ProjectHermes
 
     	#region Methods
 
-        protected void OnPlayerDeath(GameObject other)
+        protected void OnPlayerDeath(GameObject player)
 		{
-            if (other.tag == "Player")
+            if (player.tag == "Player")
             {
-                if(other.GetComponent<StarController>().hasStarEffect)
+                // If player has star, dont kill
+                if(player.GetComponent<StarController>().hasStarEffect)
 				{
                     if(this.gameObject.tag == "Enemy")
 					{
@@ -23,12 +24,14 @@ namespace ProjectHermes
                         Destroy(this.gameObject);
 					}
 				}
-                else if (other.GetComponent<FireballController>().isFireUpgraded)
+                // If player has fire, demote but dont kill
+                else if (player.GetComponent<FireballController>().isFireUpgraded)
                 {
-                    other.GetComponent<FireballController>().isFireUpgraded = false;
+					player.GetComponent<FireballController>().isFireUpgraded = false;
 
                 }
-                else if (!other.GetComponent<FireballController>().isInvincible)
+                // if player has nothing, kill
+                else if (!player.GetComponent<FireballController>().isInvincible)
                 {
                     AudioManager.instance.Play("PlayerDeath");
                     SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -36,7 +39,20 @@ namespace ProjectHermes
             }
         }
 
-    	#endregion
+        protected void OnPlayerDeath(GameObject player, bool isVoid)
+        {
+            if(isVoid == true && player.gameObject.tag == "Player")
+            {
+				AudioManager.instance.Play("PlayerDeath");
+				SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+			}
+            else if (isVoid == true)
+            {
+                Destroy(player.gameObject);
+            }
+        }
 
-    }
+		#endregion
+
+	}
 }
