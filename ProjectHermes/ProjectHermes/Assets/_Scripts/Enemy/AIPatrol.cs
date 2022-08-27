@@ -92,7 +92,7 @@ namespace ProjectHermes
 		{
 			mustPatrol = false;
 			flipTimer = 0;
-			transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
+			gameObject.GetComponent<SpriteRenderer>().flipX ^= true;
 			_walkSpeed *= -1;
 			mustPatrol = true;
 		}
