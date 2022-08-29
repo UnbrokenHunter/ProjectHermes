@@ -24,21 +24,22 @@ namespace ProjectHermes
 		[Header("Patrol Type")]
 		[ValueDropdown("Patrol_or_Coordinates")]
 		[HideLabel]
-		[SerializeField] private bool isPatrol;
+		public bool isPatrol;
 
 		[HideIfGroup("isPatrol")]
-		[SerializeField] private float walkDistance = 5;
+		public float walkDistance = 5;
 
 		[Header("Walk Variables")]
-		[SerializeField] private float _walkSpeed = 50;
-		[SerializeField] private bool _startLeft = false;
+		public float _walkSpeed = 50;
+		public bool _startLeft = false;
 
 		[Header("Physics Variables")]
 		[SerializeField] private Transform groundCheckPos;
 		[SerializeField] private Transform wallCheckPos;
 		[SerializeField] [Range(0, .5f)] private float _checkRadius = .01f;
 		[SerializeField] private LayerMask _layerMask;
-		
+
+		private Transform obj;
 
 		#endregion
 
@@ -63,13 +64,14 @@ namespace ProjectHermes
 				Patrol();
 				if (isPatrol)
 				{
-					mustFlip = !Physics2D.OverlapCircle(groundCheckPos.position, _checkRadius, _layerMask) 
-						|| Physics2D.OverlapCircle(wallCheckPos.position, _checkRadius, _layerMask);
+					mustFlip = _rb.velocity.y >= 0 && (!Physics2D.OverlapCircle(groundCheckPos.position, _checkRadius, _layerMask) 
+						|| Physics2D.OverlapCircle(wallCheckPos.position, _checkRadius, _layerMask));
 				}
+				// Distance
 				if(!isPatrol)
 				{
 					flipTimer += Time.deltaTime;
-					if(flipTimer >= walkDistance)
+					if(flipTimer >= walkDistance || Physics2D.OverlapCircle(wallCheckPos.position, _checkRadius, _layerMask))
 					{
 						Flip();
 					}
@@ -93,6 +95,13 @@ namespace ProjectHermes
 			mustPatrol = false;
 			flipTimer = 0;
 			gameObject.GetComponent<SpriteRenderer>().flipX ^= true;
+
+			for (int i = 0; i < transform.childCount; i++)
+			{
+				obj = transform.GetChild(i);
+				obj.localPosition = new Vector3(-obj.localPosition.x, obj.localPosition.y, obj.localPosition.z);
+			}
+
 			_walkSpeed *= -1;
 			mustPatrol = true;
 		}

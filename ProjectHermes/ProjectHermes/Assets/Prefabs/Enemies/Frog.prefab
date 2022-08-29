@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1157590717326318875}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: WallCheck
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -43,12 +43,13 @@ GameObject:
   - component: {fileID: 3453279636388661737}
   - component: {fileID: 7033175856304235475}
   - component: {fileID: 3453279636388661742}
+  - component: {fileID: 6463877133518115793}
   - component: {fileID: 3453279636388661740}
   - component: {fileID: 3453279636388661743}
   - component: {fileID: 3453279636388661741}
   - component: {fileID: 3453279636388661747}
   - component: {fileID: 4356499854889667100}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Frog
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -146,7 +147,7 @@ MonoBehaviour:
   _checkRadius: 0.01
   _layerMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 264
 --- !u!114 &3453279636388661742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,6 +162,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _killBounceAmount: 50
   _anim: {fileID: 0}
+--- !u!114 &6463877133518115793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3453279636388661732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 921d2175c3b7c7f48bf041465ba39acd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inPipe: 0
+  spawn: {fileID: 0}
+  exit: {fileID: 0}
+  speed: 0
 --- !u!95 &3453279636388661740
 Animator:
   serializedVersion: 4
@@ -279,7 +296,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 629585196197168879}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}

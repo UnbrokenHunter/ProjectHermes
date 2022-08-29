@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2344515871966655040}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FireSpot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48,7 +48,7 @@ GameObject:
   - component: {fileID: 2344515872143096498}
   - component: {fileID: 2344515872143096501}
   - component: {fileID: 2344515872143096500}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Mushroom
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -141,6 +141,7 @@ MonoBehaviour:
   bulletLifespan: 3
   shootingRate: 2.1
   fireSpot: {fileID: 2344515871966655043}
+  loadingDistance: 30
 --- !u!114 &2344515872143096503
 MonoBehaviour:
   m_ObjectHideFlags: 0

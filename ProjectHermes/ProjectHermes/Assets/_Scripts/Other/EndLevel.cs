@@ -11,12 +11,6 @@ namespace ProjectHermes
     public class EndLevel : MonoBehaviour
     {
 
-		#region Program Variables
-
-
-
-		#endregion
-
 		#region User Variables 
 
 		[SerializeField] private PlayableDirector Timeline;

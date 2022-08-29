@@ -29,6 +29,9 @@ public class Parallax : MonoBehaviour {
     public bool yAxis = true; //parallax on y?
     public bool infiniteLoop = false; //are we looping?
 
+    // Custorm Sizes
+    [SerializeField] private float sizeMultiplier = 1;
+
 
     //Loop requirement
     public SpriteRenderer loopSpriteRenderer;
@@ -41,8 +44,8 @@ public class Parallax : MonoBehaviour {
         zPosition = transform.position.z;
 
         if (loopSpriteRenderer != null && infiniteLoop) {
-            float spriteSizeX = loopSpriteRenderer.sprite.rect.width / loopSpriteRenderer.sprite.pixelsPerUnit;
-            float spriteSizeY = loopSpriteRenderer.sprite.rect.height / loopSpriteRenderer.sprite.pixelsPerUnit;
+            float spriteSizeX = loopSpriteRenderer.sprite.rect.width / loopSpriteRenderer.sprite.pixelsPerUnit * sizeMultiplier;
+            float spriteSizeY = loopSpriteRenderer.sprite.rect.height / loopSpriteRenderer.sprite.pixelsPerUnit * sizeMultiplier;
 
             loopSpriteRenderer.drawMode = SpriteDrawMode.Tiled;
             loopSpriteRenderer.size = new Vector2(spriteSizeX * tileWidth, spriteSizeY);
