@@ -10,20 +10,28 @@ namespace ProjectHermes
 
 		#region Variables
 
+		[HideIf("@BlockHitbox != null")]
 		[SerializeField] private GameObject BlockHitbox;
+
+		[HideIf("@BlockHitbox != null")]
 		[SerializeField] private Animator anim;
+
+		[Title("Prefab Settings")]
 		[SerializeField] private GameObject fishPrefab;
-		[SerializeField] private GameObject fireballPrefab;
-		[SerializeField] private bool doDestroy = true;
+		[SerializeField] private GameObject rewardPrefab;
+
+		[Title("Block Settings")]
+		[SerializeField] private bool destroyOnBreak = false;
+
+		[Title("Reward Settings")]
 		[SerializeField] private bool hasFish;
-		[SerializeField] private bool hasFireball;
+		[SerializeField] private bool hasPowerup;
 		[SerializeField] private float animationLength;
 		[SerializeField] private float fishAnimationLength;
 
 		private bool isSolid = false;
 
 		#endregion
-
 
 		#region Methods
 
@@ -34,6 +42,7 @@ namespace ProjectHermes
 				AudioManager.instance.Play("BreakBlock");
 				anim.SetTrigger("Break");
 
+				// If block has fish, spawn fish and do its animation
 				if(hasFish)
 				{
 					GameObject fish = Instantiate(fishPrefab, transform);
@@ -44,9 +53,10 @@ namespace ProjectHermes
 					fish.GetComponent<BoxCollider2D>().enabled = false;
 				}
 
-				if(hasFireball)
+				// If has powerup, spawn powerup
+				if(hasPowerup)
 				{
-					GameObject fish = Instantiate(fireballPrefab, transform);
+					GameObject fish = Instantiate(rewardPrefab, transform);
 					fish.transform.localPosition = new Vector3(0, 1, 0);
 					fish.GetComponentInChildren<SpriteRenderer>().sortingOrder = this.gameObject.GetComponentInChildren<SpriteRenderer>().sortingOrder - 1;
 
@@ -60,7 +70,7 @@ namespace ProjectHermes
 		private IEnumerator DestroyBlock()
 		{
 			yield return new WaitForSeconds(animationLength);
-			if (doDestroy)
+			if (destroyOnBreak)
 			{
 				if(hasFish)
 				{

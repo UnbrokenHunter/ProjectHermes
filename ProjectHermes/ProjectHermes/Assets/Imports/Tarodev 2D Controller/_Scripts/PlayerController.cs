@@ -9,7 +9,7 @@ namespace TarodevController {
     public class PlayerController : MonoBehaviour, IPlayerController {
         [SerializeField] private ScriptableStats _stats;
 
-        private FrameInput _frameInput;
+        [HideInInspector] public FrameInput _frameInput;
         private Rigidbody2D _rb;
         private CapsuleCollider2D[] _cols; // Standing and crouching colliders
         private CapsuleCollider2D _col; // Current collider

@@ -147,7 +147,7 @@ namespace ProjectHermes
 
 		private void DownPipe(Collider2D other)
 		{
-            if (other.gameObject.tag == "Player")
+            if (other.gameObject.tag == "Player" && _exitPipe != null)
             {
                 if (other.gameObject.GetComponent<PlayerController>()._goPipe)
                 {

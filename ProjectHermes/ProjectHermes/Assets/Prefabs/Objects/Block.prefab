@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3177654805087362032}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 33.05, y: 8.35, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.4999999, y: 1.4999999, z: 1.4999999}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -49,10 +49,10 @@ MonoBehaviour:
   BlockHitbox: {fileID: 3177654806325954294}
   anim: {fileID: 3177654806325954299}
   fishPrefab: {fileID: 2736071067771080649, guid: 2f22ca82c7b67a5499bb59dff364eca0, type: 3}
-  fireballPrefab: {fileID: 2739718840030068983, guid: 0dd2b41e168452343a33529300d15097, type: 3}
-  doDestroy: 0
+  rewardPrefab: {fileID: 0}
+  destroyOnBreak: 0
   hasFish: 1
-  hasFireball: 0
+  hasPowerup: 0
   animationLength: 0.05
   fishAnimationLength: 0.08
 --- !u!61 &3177654805087362043
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 3177654806325954292}
   - component: {fileID: 3177654806325954298}
   - component: {fileID: 3177654806325954299}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BlockHitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
