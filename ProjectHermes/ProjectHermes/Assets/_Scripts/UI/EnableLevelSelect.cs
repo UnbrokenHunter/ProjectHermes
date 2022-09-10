@@ -36,6 +36,7 @@ namespace ProjectHermes
 
             // Play Audio
             AudioManager.instance.Play("Click1");
+            DoNotDestroy.instance.GetComponentInChildren<CheckpointDoNotDestroy>().hasCheckpoint = false;
         }
 
         public void DisableLevelSelect()
@@ -45,89 +46,111 @@ namespace ProjectHermes
 
             // Play Audio
             AudioManager.instance.Play("Click1");
-        }
+			DoNotDestroy.instance.GetComponentInChildren<CheckpointDoNotDestroy>().hasCheckpoint = false;
 
-        public void Level1()
+		}
+
+		public void Level1()
 		{
             ChangeScene.instance.LoadByString(levelOne);
 
             // Play Audio
             AudioManager.instance.Play("Click1");
-        }
+			DoNotDestroy.instance.GetComponentInChildren<CheckpointDoNotDestroy>().hasCheckpoint = false;
 
-        public void Level2()
+		}
+
+		public void Level2()
 		{
             ChangeScene.instance.LoadByString(levelTwo);
 
             // Play Audio
             AudioManager.instance.Play("Click1");
-        }
+			DoNotDestroy.instance.GetComponentInChildren<CheckpointDoNotDestroy>().hasCheckpoint = false;
 
-        public void Level3()
+		}
+
+		public void Level3()
 		{
             ChangeScene.instance.LoadByString(levelThree);
 
             // Play Audio
             AudioManager.instance.Play("Click1");
-        }
+			DoNotDestroy.instance.GetComponentInChildren<CheckpointDoNotDestroy>().hasCheckpoint = false;
 
-        public void Level4()
+		}
+
+		public void Level4()
 		{
             ChangeScene.instance.LoadByString(levelFour);
 
             // Play Audio
             AudioManager.instance.Play("Click1");
-        }
+			DoNotDestroy.instance.GetComponentInChildren<CheckpointDoNotDestroy>().hasCheckpoint = false;
 
-        public void Level5()
+		}
+
+		public void Level5()
 		{
             ChangeScene.instance.LoadByString(levelFive);
 
             // Play Audio
             AudioManager.instance.Play("Click1");
-        }
+			DoNotDestroy.instance.GetComponentInChildren<CheckpointDoNotDestroy>().hasCheckpoint = false;
 
-        public void Level6()
+		}
+
+		public void Level6()
 		{
             ChangeScene.instance.LoadByString(levelSix);
 
             // Play Audio
             AudioManager.instance.Play("Click1");
-        }
+			DoNotDestroy.instance.GetComponentInChildren<CheckpointDoNotDestroy>().hasCheckpoint = false;
 
-        public void Level7()
+		}
+
+		public void Level7()
 		{
             ChangeScene.instance.LoadByString(levelSeven);
 
             // Play Audio
             AudioManager.instance.Play("Click1");
-        }
+			DoNotDestroy.instance.GetComponentInChildren<CheckpointDoNotDestroy>().hasCheckpoint = false;
 
-        public void Level8()
+		}
+
+		public void Level8()
 		{
             ChangeScene.instance.LoadByString(levelEight);
 
             // Play Audio
             AudioManager.instance.Play("Click1");
-        }
+			DoNotDestroy.instance.GetComponentInChildren<CheckpointDoNotDestroy>().hasCheckpoint = false;
 
-        public void Level9()
+		}
+
+		public void Level9()
 		{
             ChangeScene.instance.LoadByString(levelNine);
 
             // Play Audio
             AudioManager.instance.Play("Click1");
-        }
+			DoNotDestroy.instance.GetComponentInChildren<CheckpointDoNotDestroy>().hasCheckpoint = false;
 
-        public void Level10()
+		}
+
+		public void Level10()
 		{
             ChangeScene.instance.LoadByString(levelTen);
 
             // Play Audio
             AudioManager.instance.Play("Click1");
-        }
+			DoNotDestroy.instance.GetComponentInChildren<CheckpointDoNotDestroy>().hasCheckpoint = false;
 
-        #endregion
+		}
 
-    }
+		#endregion
+
+	}
 }
