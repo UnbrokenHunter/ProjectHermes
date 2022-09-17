@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace ProjectHermes
 {
@@ -29,8 +30,23 @@ namespace ProjectHermes
 		[HideIf("@BlockPrefab != null")]
 		[SerializeField] private GameObject BlockPrefab;
 
-		[HideIf("@OneWayPrefab != null")]
-		[SerializeField] private GameObject OneWayPrefab;
+		[HideIf("@OneWayPrefabCloud != null")]
+		[SerializeField] private GameObject OneWayPrefabCloud;
+
+		[HideIf("@OneWayPrefabBridge != null")]
+		[SerializeField] private GameObject OneWayPrefabBridge;
+
+		[HideIf("@CloudSprite != null")]
+		[SerializeField] private Sprite CloudSprite;
+
+		[HideIf("@CloudEndLeft != null")]
+		[SerializeField] private Sprite CloudEndLeft;
+
+		[HideIf("@CloudEndRight != null")]
+		[SerializeField] private Sprite CloudEndRight;
+
+		[HideIf("@CloudEndBoth != null")]
+		[SerializeField] private Sprite CloudEndBoth;
 
 		[ListDrawerSettings(HideAddButton = true, HideRemoveButton = true, DraggableItems = false)]
 		[SerializeField] private List<GameObject> blockList;
@@ -49,6 +65,9 @@ namespace ProjectHermes
 
 		[OnValueChanged("OrganizeBlocks")]
 		[SerializeField] private float yHitboxSize = 0.935f;
+
+		[OnValueChanged("OrganizeBlocks")]
+		[SerializeField] private float xHitboxSize = 0.935f;
 
 		[OnValueChanged("OrganizeBlocks")]
 		[SerializeField] private float yHitboxOffset = 0.03200114f;
@@ -71,6 +90,7 @@ namespace ProjectHermes
 				blockSpacing = 1.5f;
 
 				yHitboxSize = 1.4025f;
+				xHitboxSize = 0f;
 				yHitboxOffset = 0.04800171f;
 
 				// Effects
@@ -79,20 +99,37 @@ namespace ProjectHermes
 				// Prefab
 				return BlockPrefab;
 			}
-			else if (blockType == BlockTypes.OneWayPlatform)
+			else if (blockType == BlockTypes.Cloud)
 			{
 
 				// Hitbox
-				blockSpacing = 3.74f;
+				blockSpacing = 2.99f;
 
-				yHitboxSize = 0.96f;
-				yHitboxOffset = 0f;
+				yHitboxSize = 0.7998257f;
+				xHitboxSize = 2.99f;
+				yHitboxOffset = 0.08578894f;
 
 				// Effects
 				isOneWay = true;
 
 				// Prefab
-				return OneWayPrefab;
+				return OneWayPrefabCloud;
+			}
+			else if (blockType == BlockTypes.OneWayPlatform)
+			{
+
+				// Hitbox
+				blockSpacing = 1f;
+
+				yHitboxSize = 0.4f;
+				xHitboxSize = 0f;
+				yHitboxOffset = .14f;
+
+				// Effects
+				isOneWay = true;
+
+				// Prefab
+				return OneWayPrefabBridge;
 			}
 
 			// To allow all paths to have a return value
@@ -133,9 +170,36 @@ namespace ProjectHermes
 				blockList[i].transform.position = transform.position + new Vector3(blockSpacing * i, 0, 0);
 			}
 
+			FixCloudSprite();
+
 			FixHitbox();
 		}
 
+		private void FixCloudSprite()
+		{
+			if(blockType == BlockTypes.Cloud)
+			{
+				if(blockList.Count > 1)
+				{
+					foreach(var block in blockList)
+					{
+						block.transform.GetComponent<SpriteRenderer>().sprite = CloudSprite;
+					}
+
+					// Left Side
+					blockList[0].transform.GetComponentInChildren<SpriteRenderer>().sprite = CloudEndLeft;
+
+					// Right Side
+					blockList[blockList.Count - 1].transform.GetComponentInChildren<SpriteRenderer>().sprite = CloudEndRight;
+				}
+
+				if(blockList.Count == 1)
+				{
+					// One Platform
+					blockList[0].transform.GetComponentInChildren<SpriteRenderer>().sprite = CloudEndBoth;
+				}
+			}
+		}
 
 		[Button("Update Hitbox")]
 		private void FixHitbox()
@@ -149,9 +213,28 @@ namespace ProjectHermes
 
 			for (int i = 0; i < blockList.Count; i++)
 			{
-				// If a child has a hitbox, turn it off, otherwise turn off parent hitbox
-				if (blockList[i].transform.GetChild(0).TryGetComponent<BoxCollider2D>(out BoxCollider2D boxChild)) boxChild.usedByComposite = true;
-				else if (blockList[i].transform.TryGetComponent<BoxCollider2D>(out BoxCollider2D boxs)) boxs.usedByComposite = true;
+				if (blockType != BlockTypes.Block)
+				{
+					// If a child has a hitbox, turn it off, otherwise turn off parent hitbox
+					if (blockList[i].transform.TryGetComponent<BoxCollider2D>(out BoxCollider2D boxs))
+					{
+						boxs.usedByComposite = true;
+
+						boxs.size = new Vector2(xHitboxSize, yHitboxSize);
+						boxs.offset = new Vector2(0, yHitboxOffset);
+					}
+				}
+				else
+				{
+					if (blockList[i].transform.GetChild(0).TryGetComponent<BoxCollider2D>(out BoxCollider2D boxChild))
+					{
+						boxChild.usedByComposite = true;
+
+
+						boxChild.size = new Vector2(xHitboxSize, yHitboxSize);
+						boxChild.offset = new Vector2(0, yHitboxOffset);
+					}
+				}
 			}
 		}
 
@@ -162,7 +245,8 @@ namespace ProjectHermes
 	public enum BlockTypes
 	{
 		Block,
-		OneWayPlatform,
+		Cloud,
+		OneWayPlatform
 
 	}
 }

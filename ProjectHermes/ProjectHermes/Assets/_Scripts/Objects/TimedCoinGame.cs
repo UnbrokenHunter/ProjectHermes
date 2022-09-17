@@ -113,7 +113,7 @@ namespace ProjectHermes
 
 		private void SummonReward()
 		{
-			rewardObject = Instantiate(reward, this.transform.position, this.transform.rotation, coinContainer);
+			rewardObject = Instantiate(reward, this.transform.position, this.transform.rotation, transform);
 			hit = Physics2D.Raycast(rewardObject.transform.position, Vector2.down);
 			rewardSummoned = true;
 			gameObject.GetComponent<BoxCollider2D>().enabled = false;
