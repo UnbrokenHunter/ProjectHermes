@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7822853090871547801}
   - component: {fileID: 7822853090871547802}
+  - component: {fileID: 3847349402950423648}
+  - component: {fileID: 4816589811307858995}
   - component: {fileID: 7822853090871547798}
   - component: {fileID: 7822853090871547796}
   - component: {fileID: 7822853090871547797}
@@ -30,7 +32,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.2, y: -0.51, z: 0.5531448}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -48,6 +50,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockType: 0
+  moveType: 0
   BlockPrefab: {fileID: 3177654805087362032, guid: 2e6c9dada9cf03f439fba3d241ebcf0f, type: 3}
   OneWayPrefabCloud: {fileID: 7590519080685018298, guid: cb6b05d4af1fd354a8a0b0191c7b99d4, type: 3}
   OneWayPrefabBridge: {fileID: 7590519080685018298, guid: 6103119d26a6f7745bafc1c354ab8237, type: 3}
@@ -55,12 +58,47 @@ MonoBehaviour:
   CloudEndLeft: {fileID: 21300000, guid: cd4addf933239544aa68ec81a1df7569, type: 3}
   CloudEndRight: {fileID: 21300000, guid: e64c0dc10abc59149a450170a1a35bba, type: 3}
   CloudEndBoth: {fileID: 21300000, guid: 2506174fc7cfe4540977829e75ec0fc0, type: 3}
+  patrolPlatform: {fileID: 3847349402950423648}
+  radialPlatform: {fileID: 4816589811307858995}
   blockList: []
   isOneWay: 0
   blockSpacing: 1.5
   yHitboxSize: 1.4025
   xHitboxSize: 0
   yHitboxOffset: 0.04800171
+--- !u!114 &3847349402950423648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7822853090871547800}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 281e1cd0bbf680741a9dc6cd7e84371c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _unlockThreshold: 4
+  _points:
+  - {x: 0, y: 0}
+  - {x: 10, y: -6.04}
+  _speed: 1
+  _looped: 0
+--- !u!114 &4816589811307858995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7822853090871547800}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95d20fe0a79828f499ca2b3e608eaad3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _unlockThreshold: 2.5
+  _speed: 3
+  _size: 2
 --- !u!66 &7822853090871547798
 CompositeCollider2D:
   m_ObjectHideFlags: 0

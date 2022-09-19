@@ -27,6 +27,8 @@ namespace ProjectHermes
 		{
 			DoNotDestroy.instance.GetComponentInChildren<CheckpointDoNotDestroy>().hasCheckpoint = true;
 
+			GetComponentInChildren<Animator>().SetTrigger("FlagHit");
+
 			// AudioManager.instance.Play()
 		}
 

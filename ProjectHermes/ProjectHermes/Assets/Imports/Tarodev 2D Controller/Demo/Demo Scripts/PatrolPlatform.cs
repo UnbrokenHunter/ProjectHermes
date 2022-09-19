@@ -59,6 +59,8 @@ namespace TarodevController
         private void OnDrawGizmosSelected()
         {
             if (Application.isPlaying) return;
+            if (!this.enabled) return;
+
             var curPos = (Vector2)transform.position;
             var previous = curPos + _points[0];
             for (var i = 0; i < _points.Length; i++)

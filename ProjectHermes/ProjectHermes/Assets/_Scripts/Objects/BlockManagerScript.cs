@@ -12,6 +12,7 @@ namespace ProjectHermes
 		#region Program Variables
 
 		private CompositeCollider2D box;
+		private Rigidbody2D rb;
 
 		private GameObject activePrefab => SetType();
 
@@ -24,8 +25,11 @@ namespace ProjectHermes
 		[EnumPaging]
 		[SerializeField] private BlockTypes blockType;
 
+		[OnValueChanged("SetMoveType")]
+		[EnumPaging]
+		[SerializeField] private MoveType moveType;
 
-
+		#region Hideif Variables
 
 		[HideIf("@BlockPrefab != null")]
 		[SerializeField] private GameObject BlockPrefab;
@@ -47,6 +51,14 @@ namespace ProjectHermes
 
 		[HideIf("@CloudEndBoth != null")]
 		[SerializeField] private Sprite CloudEndBoth;
+
+		[HideIf("@patrolPlatform != null")]
+		[SerializeField] private TarodevController.PatrolPlatform patrolPlatform;
+
+		[HideIf("@radialPlatform != null")]
+		[SerializeField] private TarodevController.RadialPlatform radialPlatform;
+
+		#endregion
 
 		[ListDrawerSettings(HideAddButton = true, HideRemoveButton = true, DraggableItems = false)]
 		[SerializeField] private List<GameObject> blockList;
@@ -83,6 +95,9 @@ namespace ProjectHermes
 
 		private GameObject SetType()
 		{
+
+			#region BlockType
+
 			if (blockType == BlockTypes.Block)
 			{
 
@@ -137,6 +152,25 @@ namespace ProjectHermes
 			{
 				return null;
 			}
+
+			#endregion
+
+		}
+
+		private void SetMoveType()
+		{
+			#region MoveType
+
+			rb = GetComponent<Rigidbody2D>();
+
+			// If MoveType enum == static, set bodytype to static, otherwise set it to kinematic 
+			rb.bodyType = moveType == MoveType.Static ? rb.bodyType = RigidbodyType2D.Static : RigidbodyType2D.Kinematic;
+
+			if (moveType == MoveType.Static) { patrolPlatform.enabled = false; radialPlatform.enabled = false; }
+			else if (moveType == MoveType.Patrol) { patrolPlatform.enabled = true; radialPlatform.enabled = false; }
+			else if(moveType == MoveType.Radial) { patrolPlatform.enabled = false; radialPlatform.enabled = true; }
+
+			#endregion
 		}
 
 		[Button("Add Block")]
@@ -248,5 +282,11 @@ namespace ProjectHermes
 		Cloud,
 		OneWayPlatform
 
+	}
+	public enum MoveType
+	{
+		Static,
+		Patrol,
+		Radial
 	}
 }

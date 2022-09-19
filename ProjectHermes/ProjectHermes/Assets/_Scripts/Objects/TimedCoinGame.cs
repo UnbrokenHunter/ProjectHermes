@@ -94,7 +94,7 @@ namespace ProjectHermes
 
 		private void CreateCoins()
 		{
-			gameObject.GetComponentInChildren<SpriteRenderer>().enabled = false;
+			gameObject.GetComponentInChildren<Animator>().enabled = true;
 			gameObject.GetComponent<BoxCollider2D>().enabled = false;
 
 			foreach (var coinLocation in coins)

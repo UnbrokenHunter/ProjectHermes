@@ -34,6 +34,8 @@ namespace TarodevController {
 
         private void OnDrawGizmosSelected() {
             if (Application.isPlaying) return;
+            if (!this.enabled) return;
+
             Gizmos.DrawWireSphere(transform.position, _size);
         }
     }
