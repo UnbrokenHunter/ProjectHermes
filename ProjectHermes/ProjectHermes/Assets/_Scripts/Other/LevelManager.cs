@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 namespace ProjectHermes
 {
@@ -30,6 +31,19 @@ namespace ProjectHermes
 
 		#endregion
 
+		#region Star Coin
+
+		[Title("Star Coin")]
+		[SerializeField] private Image starCoin;
+		[SerializeField] private Color StarEmptyColor;
+		public void StarCoinCollected()
+		{
+			starCoin.color = StarEmptyColor;
+			print("Sprite Changed");
+		}
+
+		#endregion
+
 		#region Timer 
 
 		[Title("Timer")]
@@ -52,5 +66,6 @@ namespace ProjectHermes
 
 
 		#endregion
+
 	}
 }

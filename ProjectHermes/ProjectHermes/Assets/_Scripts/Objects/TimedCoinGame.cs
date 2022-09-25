@@ -56,6 +56,7 @@ namespace ProjectHermes
 					{
 						Destroy(coinContainer.GetChild(i).gameObject);
 					}
+					this.GetComponentInChildren<SpriteRenderer>().enabled = false;
 				}
 			}
 
@@ -63,7 +64,6 @@ namespace ProjectHermes
 			{
 				SummonReward();
 			}
-
 
 			if(rewardObject != null && rewardFall)
 			{
@@ -117,6 +117,7 @@ namespace ProjectHermes
 			hit = Physics2D.Raycast(rewardObject.transform.position, Vector2.down);
 			rewardSummoned = true;
 			gameObject.GetComponent<BoxCollider2D>().enabled = false;
+			this.GetComponentInChildren<SpriteRenderer>().enabled = false;
 		}
 
 		#endregion

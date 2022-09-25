@@ -25,6 +25,7 @@ namespace ProjectHermes
 			if (other.gameObject.tag != "Player") return;
 
 			endLevelCam.Priority = 11;
+			other.gameObject.SetActive(false);
 			Timeline.Play();
 
 		}

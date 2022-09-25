@@ -151,6 +151,7 @@ namespace ProjectHermes
             {
                 if (other.gameObject.GetComponent<PlayerController>()._goPipe)
                 {
+                    other.GetComponent<FireballController>().canShootFireball = false;
                     if ((this.transform.position.x - _lerpThreshold <= other.transform.position.x && other.transform.position.x <= this.transform.position.x + _lerpThreshold) == false) 
                     {
                         other.gameObject.GetComponent<PlayerController>().MovePlayerToPipe(this.transform, _lerpSpeed);
@@ -189,6 +190,8 @@ namespace ProjectHermes
 
             // Teleport player to pipe
             _player.transform.position = this.transform.position + new Vector3(0, yOffset, 0);
+
+            _player.GetComponent<FireballController>().canShootFireball = true; 
 
         }
 

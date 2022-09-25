@@ -12,6 +12,7 @@ namespace ProjectHermes
 		#region Variables
 		private SpriteRenderer _renderer;
 
+		public bool canShootFireball = true;
 
         public bool isFireUpgraded = false;
 		public bool isInvincible = false;
@@ -83,6 +84,8 @@ namespace ProjectHermes
 
 		public void shootFireball()
 		{
+			if (!canShootFireball) return;
+
 			GameObject fireball = Instantiate(fireballPrefab, firePoint.position, firePoint.rotation);
 			Rigidbody2D rb = fireball.GetComponent<Rigidbody2D>();
 			Transform transform = fireball.GetComponent<Transform>();

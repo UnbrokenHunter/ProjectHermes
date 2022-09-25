@@ -16,7 +16,6 @@ namespace ProjectHermes
 
 		#endregion
 
-
 		#region Methods
 
 		private void Awake()
