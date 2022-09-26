@@ -11,6 +11,7 @@ namespace ProjectHermes
     {
 
 		#region Coin Count
+
 		#region Variables
 
 		[Title("Coin Count")]

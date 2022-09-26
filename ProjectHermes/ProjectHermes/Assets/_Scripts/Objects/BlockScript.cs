@@ -16,6 +16,9 @@ namespace ProjectHermes
 		[HideIf("@BlockHitbox != null")]
 		[SerializeField] private Animator anim;
 
+		[HideIf("@part != null")]
+		[SerializeField] private ParticleSystem part;
+
 		[Title("Prefab Settings")]
 		[SerializeField] private GameObject fishPrefab;
 		[SerializeField] private GameObject rewardPrefab;
@@ -28,6 +31,7 @@ namespace ProjectHermes
 		[SerializeField] private bool hasPowerup;
 		[SerializeField] private float animationLength;
 		[SerializeField] private float fishAnimationLength;
+		[SerializeField] [Range(0, 2)] private float particleAnimationLength;
 
 		private bool isSolid = false;
 
@@ -76,7 +80,26 @@ namespace ProjectHermes
 				{
 					yield return new WaitForSeconds(fishAnimationLength);
 				}
+
+				// PARTICLES -----------------------
+				// ---------------------------------
+
+				part.gameObject.SetActive(true);
+				part.Play();
+
+				foreach (BoxCollider2D cols in GetComponentsInChildren<BoxCollider2D>())
+				{
+					cols.enabled = false;
+				}
+
+				GetComponentInChildren<SpriteRenderer>().enabled = false;
+
+				yield return new WaitForSeconds(particleAnimationLength);
+
+				// ---------------------------------
+
 				Destroy(this.gameObject);
+				print("Destroy");
 
 			}
 			else
