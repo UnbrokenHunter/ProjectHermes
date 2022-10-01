@@ -44,7 +44,7 @@ namespace ProjectHermes
 
 			levelManager.StarCoinCollected();
 
-			GetComponent<SpriteRenderer>().enabled = false;
+			Destroy(gameObject);
 
 			// Animator
 			// AudioManager.instance.Play();

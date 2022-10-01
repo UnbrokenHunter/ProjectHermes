@@ -38,7 +38,6 @@ namespace ProjectHermes
 		#endregion
 
 		#region Methods
-
 		private void OnCollisionEnter2D(Collision2D other)
 		{
 			if(other.gameObject.tag == "Player" && !isSolid)

@@ -35,11 +35,14 @@ namespace ProjectHermes
 		#region Star Coin
 
 		[Title("Star Coin")]
-		[SerializeField] private Image starCoin;
+		[SerializeField] private Image[] starCoin;
 		[SerializeField] private Color StarEmptyColor;
+		[SerializeField] private int starCoinsCollected = 0;
+
 		public void StarCoinCollected()
 		{
-			starCoin.color = StarEmptyColor;
+			starCoin[starCoinsCollected].color = StarEmptyColor;
+			starCoinsCollected++;
 			print("Sprite Changed");
 		}
 

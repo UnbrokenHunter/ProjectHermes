@@ -29,7 +29,6 @@ namespace ProjectHermes
         [SerializeField] private string _timerPreText;
 		[SerializeField] private string _timerPostText;
 
-
 		#endregion
 
 		#region Unity Methods
@@ -38,15 +37,23 @@ namespace ProjectHermes
     	{
             _coinText.text = _coinPreText + levelManager.coinCount + _coinPostText;
             _timerText.text = _timerPreText + levelManager.timeCounter + _timerPostText;
-    	}
-	
-    	#endregion 
-	
-    	#region User Methods
-		
-        public void ReturnMainMenu()
+
+            
+		}
+
+		#endregion
+
+		#region User Methods
+
+		public void ReturnMainMenu()
         {
-            DoNotDestroy.instance.GetComponentInChildren<ChangeScene>().LoadByString("TitleScreen");
+            EndLevel end = new EndLevel();
+			foreach (var UI in end.UIElements)
+			{
+				UI.SetActive(true);
+                print(UI);
+			}
+			DoNotDestroy.instance.GetComponentInChildren<ChangeScene>().LoadByString("TitleScreen");
         }
 
     	#endregion 

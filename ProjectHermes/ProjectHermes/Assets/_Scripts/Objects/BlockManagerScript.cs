@@ -22,23 +22,33 @@ namespace ProjectHermes
 
 		[Title("Presets")]
 		[OnValueChanged("SetType")]
-		[EnumPaging]
+		[EnumToggleButtons]
 		[SerializeField] private BlockTypes blockType;
 
+		[Space]
+
 		[OnValueChanged("SetMoveType")]
-		[EnumPaging]
+		[EnumToggleButtons]
 		[SerializeField] private MoveType moveType;
+
+		[Space]
+
+		[EnumToggleButtons]
+		[SerializeField] private BlockVariant BlockVariants;
 
 		#region Hideif Variables
 
-		[HideIf("@BlockPrefab != null")]
-		[SerializeField] private GameObject BlockPrefab;
+		#region Blocks
+
+		[HideIf("@BlockPrefab.Length >= 2")]
+		[SerializeField] private GameObject[] BlockPrefab;
+
+		#endregion
+
+		#region Cloud
 
 		[HideIf("@OneWayPrefabCloud != null")]
 		[SerializeField] private GameObject OneWayPrefabCloud;
-
-		[HideIf("@OneWayPrefabBridge != null")]
-		[SerializeField] private GameObject OneWayPrefabBridge;
 
 		[HideIf("@CloudSprite != null")]
 		[SerializeField] private Sprite CloudSprite;
@@ -52,6 +62,17 @@ namespace ProjectHermes
 		[HideIf("@CloudEndBoth != null")]
 		[SerializeField] private Sprite CloudEndBoth;
 
+		#endregion
+
+		#region Bridge
+
+		[HideIf("@OneWayPrefabBridge != null")]
+		[SerializeField] private GameObject OneWayPrefabBridge;
+
+		#endregion
+
+		#region Moving Platforms
+
 		[HideIf("@patrolPlatform != null")]
 		[SerializeField] private TarodevController.PatrolPlatform patrolPlatform;
 
@@ -59,6 +80,10 @@ namespace ProjectHermes
 		[SerializeField] private TarodevController.RadialPlatform radialPlatform;
 
 		#endregion
+
+		#endregion
+
+		[Space]
 
 		[ListDrawerSettings(HideAddButton = true, HideRemoveButton = true, DraggableItems = false)]
 		[SerializeField] private List<GameObject> blockList;
@@ -104,15 +129,30 @@ namespace ProjectHermes
 				// Hitbox
 				blockSpacing = 1.5f;
 
-				yHitboxSize = 1.4025f;
-				xHitboxSize = 0f;
+				yHitboxSize = 0.91f;
+				xHitboxSize = 1f;
 				yHitboxOffset = 0.04800171f;
 
 				// Effects
 				isOneWay = false;
 
 				// Prefab
-				return BlockPrefab;
+				if(BlockVariants == BlockVariant.Regular)
+				{
+					// Return Regular Variation
+					return BlockPrefab[0];
+				}
+				else if (BlockVariants == BlockVariant.Colorful)
+				{
+					// Return Colorful Variation
+					return BlockPrefab[1];
+				}
+
+				// To allow all paths to have a return value
+				else
+				{
+					return null;
+				}
 			}
 			else if (blockType == BlockTypes.Cloud)
 			{
@@ -137,7 +177,7 @@ namespace ProjectHermes
 				blockSpacing = 1f;
 
 				yHitboxSize = 0.4f;
-				xHitboxSize = 0f;
+				xHitboxSize = 1f;
 				yHitboxOffset = .14f;
 
 				// Effects
@@ -173,16 +213,22 @@ namespace ProjectHermes
 			#endregion
 		}
 
-		[Button("Add Block")]
+
+		[HorizontalGroup("Split", 0.5f)]
+		[TitleGroup("Split/Buttons")]
+		[Button("Add Block", ButtonSizes.Large)]
 		private void AddBlock()
 		{
+			// Handle Block Variants
+
 			GameObject block = Instantiate(activePrefab, transform);
 			blockList.Add(block);
 
 			OrganizeBlocks();
 		}
 
-		[Button("Remove Block")]
+		[VerticalGroup("Split/Buttons/Right")]
+		[Button("Remove Block", ButtonSizes.Large)]
 		private void RemoveBlock()
 		{
 			if (blockList[blockList.Count - 1] != null)
@@ -288,5 +334,11 @@ namespace ProjectHermes
 		Static,
 		Patrol,
 		Radial
+	}
+	public enum BlockVariant
+	{
+		Regular, 
+		Colorful
+
 	}
 }

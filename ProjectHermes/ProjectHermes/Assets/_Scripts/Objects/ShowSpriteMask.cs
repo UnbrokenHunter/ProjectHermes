@@ -19,8 +19,6 @@ namespace ProjectHermes
 		private Vector2 location;
 		private bool isTriggered = false;
 
-
-
 		#endregion
 
 		#region User Variables 
@@ -33,7 +31,7 @@ namespace ProjectHermes
 
 		private void OnTriggerEnter2D(Collider2D other)
 		{
-			if(other.gameObject.tag == "Player")
+			if(other.gameObject.tag == "Player" && !isTriggered)
 			{
 				location = transform.parent.position;
 

@@ -16,6 +16,8 @@ namespace ProjectHermes
 		[SerializeField] private PlayableDirector Timeline;
 		[SerializeField] private CinemachineVirtualCamera endLevelCam;
 
+		public GameObject[] UIElements;
+
 		#endregion
 
 		#region Unity Methods
@@ -27,6 +29,14 @@ namespace ProjectHermes
 			endLevelCam.Priority = 11;
 			other.gameObject.SetActive(false);
 			Timeline.Play();
+
+
+			// Turn UI Off
+			UIElements = GameObject.FindGameObjectsWithTag("UI");
+			foreach (var UI in UIElements)
+			{
+				UI.SetActive(false);
+			}
 
 		}
 

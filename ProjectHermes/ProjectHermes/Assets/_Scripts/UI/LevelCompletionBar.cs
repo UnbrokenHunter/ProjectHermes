@@ -38,7 +38,10 @@ namespace ProjectHermes
 		{
 			if (slider != null)
 			{
-				slider.value = PlayerPosition;
+				if (PlayerPosition <= transform.localScale.x)
+				{
+					slider.value = PlayerPosition;
+				}
 
 				// Find Checkpoint
 				handle.transform.localPosition = new Vector3(checkpointLocation, 0, 0); 
@@ -51,6 +54,7 @@ namespace ProjectHermes
 				{
 					handle.gameObject.GetComponent<Image>().color = unactivatedCheckpoint;
 				}
+				print(PlayerPosition);
 			}
 		}
 

@@ -50,6 +50,9 @@ MonoBehaviour:
   BlockHitbox: {fileID: 3177654806325954294}
   anim: {fileID: 3177654806325954299}
   part: {fileID: 6388128630417808337}
+  RegBlockSprite: {fileID: 21300000, guid: b284c54fbf01bf545bd3958d7dac8867, type: 3}
+  QuestionBlockSprite: {fileID: 21300000, guid: e5a23e0be5bcc004d9a1da3e721a6c19, type: 3}
+  isQuestionBlock: 0
   fishPrefab: {fileID: 2736071067771080649, guid: 2f22ca82c7b67a5499bb59dff364eca0, type: 3}
   rewardPrefab: {fileID: 0}
   destroyOnBreak: 0
