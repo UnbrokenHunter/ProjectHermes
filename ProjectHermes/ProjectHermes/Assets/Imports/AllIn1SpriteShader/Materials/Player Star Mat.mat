@@ -55,9 +55,8 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Player Star Mat
-  m_Shader: {fileID: 4800000, guid: 0803c241834332942abfcbd27c498b46, type: 3}
+  m_Shader: {fileID: 4800000, guid: 15337b42027a4714aa61b63f9e98adf4, type: 3}
   m_ValidKeywords:
-  - ETC1_EXTERNAL_ALPHA
   - _ENABLERAINBOW_ON
   - _SHADERSPACE_UV
   - _TIMESETTINGS_LINEAR_DEFAULT
@@ -65,6 +64,7 @@ Material:
   m_InvalidKeywords:
   - COLORRAMP_ON
   - CONTRAST_ON
+  - ETC1_EXTERNAL_ALPHA
   - OUTBASE_ON
   - OUTTEX_ON
   - SHINE_ON

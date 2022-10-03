@@ -29,6 +29,7 @@ namespace ProjectHermes
 		[SerializeField] private Vector2 firePointPosition;
 		[SerializeField] private Material regularMat;
 		[SerializeField] private Material fireMat;
+		[SerializeField] private GameObject Glow;
 
 		[Title("Ability Settings")]
 
@@ -80,6 +81,7 @@ namespace ProjectHermes
 			isInvincible = false;
 			_renderer.material = regularMat;
 			_renderer.color = before;
+			Glow.SetActive(false);
 		}
 
 		public void shootFireball()
@@ -116,6 +118,7 @@ namespace ProjectHermes
 			{
                 isFireUpgraded = true;
 				_renderer.material = fireMat;
+				Glow.SetActive(true);
 				AudioManager.instance.Play("PowerUp");
 				Destroy(other.gameObject);
 			}

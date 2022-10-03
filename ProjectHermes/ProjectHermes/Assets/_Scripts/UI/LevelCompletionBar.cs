@@ -54,7 +54,6 @@ namespace ProjectHermes
 				{
 					handle.gameObject.GetComponent<Image>().color = unactivatedCheckpoint;
 				}
-				print(PlayerPosition);
 			}
 		}
 

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7822853090871547798}
   - component: {fileID: 7822853090871547796}
   - component: {fileID: 7822853090871547797}
+  - component: {fileID: 6102485379706493858}
   m_Layer: 3
   m_Name: Block Grid
   m_TagString: Untagged
@@ -51,13 +52,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blockType: 0
   moveType: 0
-  BlockPrefab: {fileID: 3177654805087362032, guid: 2e6c9dada9cf03f439fba3d241ebcf0f, type: 3}
+  BlockVariants: 0
+  BlockPrefab:
+  - {fileID: 3177654805087362032, guid: 2e6c9dada9cf03f439fba3d241ebcf0f, type: 3}
+  - {fileID: 5284557736883262469, guid: 857b39e6c5f7021418167f4d14c4c213, type: 3}
   OneWayPrefabCloud: {fileID: 7590519080685018298, guid: cb6b05d4af1fd354a8a0b0191c7b99d4, type: 3}
-  OneWayPrefabBridge: {fileID: 7590519080685018298, guid: 6103119d26a6f7745bafc1c354ab8237, type: 3}
   CloudSprite: {fileID: 21300000, guid: 97cd068b0281b624298fbb993c1b6e84, type: 3}
   CloudEndLeft: {fileID: 21300000, guid: cd4addf933239544aa68ec81a1df7569, type: 3}
   CloudEndRight: {fileID: 21300000, guid: e64c0dc10abc59149a450170a1a35bba, type: 3}
   CloudEndBoth: {fileID: 21300000, guid: 2506174fc7cfe4540977829e75ec0fc0, type: 3}
+  OneWayPrefabBridge: {fileID: 7590519080685018298, guid: 6103119d26a6f7745bafc1c354ab8237, type: 3}
   patrolPlatform: {fileID: 3847349402950423648}
   radialPlatform: {fileID: 4816589811307858995}
   blockList: []
@@ -161,3 +165,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &6102485379706493858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7822853090871547800}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38f48a8d66b2adc46887f23a3a88ac01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
