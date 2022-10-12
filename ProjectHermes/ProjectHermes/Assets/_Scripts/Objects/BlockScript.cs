@@ -45,8 +45,14 @@ namespace ProjectHermes
 				AudioManager.instance.Play("BreakBlock");
 				anim.SetTrigger("Break");
 
+
+				// Check for collisions with enemies
+				GetComponentInChildren<BlockEnemyCollision>().KillEnemy();
+
+
+
 				// If block has fish, spawn fish and do its animation
-				if(hasFish)
+				if (hasFish)
 				{
 					GameObject fish = Instantiate(fishPrefab, transform);
 					fish.transform.localPosition = new Vector3(0, 0, 0);

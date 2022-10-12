@@ -56,6 +56,7 @@ namespace ProjectHermes
 
        		}
 
+
             else if (other.gameObject.layer == 6)
             {
 
@@ -78,7 +79,14 @@ namespace ProjectHermes
 
 		}
 
-		#endregion
+        public void KillMonster()
+		{
+            AudioManager.instance.Play("KillEnemy");
+            _anim.Play("Death");
 
-	}
+        }
+
+        #endregion
+
+    }
 }
