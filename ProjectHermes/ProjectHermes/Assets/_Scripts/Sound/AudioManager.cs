@@ -11,6 +11,7 @@ public class AudioManager : MonoBehaviour
 	public static AudioManager instance;
 	public AudioMixerGroup mixerGroup;
 	public Volume volume;
+	private string currentMusic;
 
 	[PropertySpace]
 
@@ -82,7 +83,10 @@ public class AudioManager : MonoBehaviour
 								FadeInVolume(s.name, s.SceneToPlayTransitionTime);
 							else
 								Play(s.name);
+
 						}
+						
+						currentMusic = s.name;
 
 					}
 
@@ -201,12 +205,21 @@ public class AudioManager : MonoBehaviour
 		// If loop StopAt is not 0, use it, otherwise use the clip length
 		yield return new WaitForSeconds(s.loopStopAt != 0 ? s.loopStopAt - s.LoopStartAt : s.clip.length - s.LoopStartAt);
 
-		print("Loop Started");
+		// If it is music
+		if(s.volumeType)
+		{
+			if(s.name == currentMusic)
+			{
+				print("Loop Started");
 
-		Restart(s.name);			
-		s.source.time = s.LoopStartAt;
+				Restart(s.name);			
+				s.source.time = s.LoopStartAt;
 
-		StartCoroutine(LoopAudio(s));
+				StartCoroutine(LoopAudio(s));
+
+			}
+		}
+
 
 	}
 	
