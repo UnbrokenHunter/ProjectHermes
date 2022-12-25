@@ -18,19 +18,24 @@ namespace ProjectHermes
         [Title("Spawner Settings")]
         [SerializeField] [Range(0, 10)] private float spawnRate = 1;
         [SerializeField] private float spawnOffset = 0;
+        [SerializeField] private float loadingDistance = 20;
 
-		#endregion
+        #endregion
 
-		#region Methods
+        #region Methods
 
-		private void Awake()
+        private void Awake()
         {
 			InvokeRepeating("SpawnSpike", spawnOffset, spawnRate);
         }
 
         private void SpawnSpike()
 		{
-            print("Shot");
+            if (Vector2.Distance(GameObject.Find("Player").transform.position, this.gameObject.transform.position) < loadingDistance)
+            { 
+                print("Shot");
+                AudioManager.instance.Play("ShootBullet");
+            }
             GameObject spike = Instantiate(spikePrefab, transform.position, transform.rotation, transform);
             spike.GetComponent<FlyingSpikeScript>().lifespan = spikeLifespan;
             spike.GetComponent<Rigidbody2D>().velocity = direction;

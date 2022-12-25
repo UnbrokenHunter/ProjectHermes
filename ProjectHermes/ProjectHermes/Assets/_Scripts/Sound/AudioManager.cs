@@ -138,7 +138,8 @@ public class AudioManager : MonoBehaviour
 			if (s.loop)
 			{
 				s.isLooping = true;
-				StartCoroutine(LoopAudio(s));
+				//StartCoroutine(LoopAudio(s));
+				s.source.loop = true;
 			}
 
 			if (s.hasStopTime)
