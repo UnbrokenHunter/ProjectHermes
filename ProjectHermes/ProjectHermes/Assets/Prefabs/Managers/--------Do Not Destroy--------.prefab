@@ -57,169 +57,790 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: e275fa149d07d9348bd845b759d7f243, type: 3}
     mixerGroup: {fileID: 0}
     volumeType: 0
-    loop: 0
-    StartAt: 0
+    FadeInIgnoresStartTime: 0
+    AudioStartAt: 0
     hasStopTime: 0
     StopAt: 0
+    loop: 0
+    isLooping: 0
+    LoopStartAt: 0
+    loopStopAt: 0
     pitch: 1
-    pitchVariance: 0.1
-    volume: 0.75
+    pitchVariance: 0.566
+    volume: 0.259
+    volumeBackup: 0
     volumeVariance: 0.1
-    SceneQueue: 
-    EndSceneQueue: 
-    SceneQueueTransitionTime: 1
+    ScenesToPlay: []
+    SceneToPlayTransitionTime: 1
+    fadeIn: 1
+    canOverplay: 1
+    isEffectedBySceneTransition: 0
     HasTransition: 0
     transitionTo: Clip
     transitionLength: 0
-    transitionTargetVolume: 0
     Aa: 0
     transitionAfter: 0
-    transition: Transition to next sound after ___ seconds. If left at 0, time will
-      be set the the length of the clip
     source: {fileID: 0}
   - name: Footstep2
     clip: {fileID: 8300000, guid: 1b7210e54c09d4d4ab5630b871ccc34c, type: 3}
     mixerGroup: {fileID: 0}
     volumeType: 0
-    loop: 0
-    StartAt: 0
+    FadeInIgnoresStartTime: 0
+    AudioStartAt: 0
     hasStopTime: 0
     StopAt: 0
+    loop: 0
+    isLooping: 0
+    LoopStartAt: 0
+    loopStopAt: 0
     pitch: 1
-    pitchVariance: 0.1
-    volume: 0.75
-    volumeVariance: 0.1
-    SceneQueue: 
-    EndSceneQueue: 
-    SceneQueueTransitionTime: 1
+    pitchVariance: 0.446
+    volume: 0.232
+    volumeBackup: 0
+    volumeVariance: 0.186
+    ScenesToPlay: []
+    SceneToPlayTransitionTime: 1
+    fadeIn: 1
+    canOverplay: 1
+    isEffectedBySceneTransition: 0
     HasTransition: 0
     transitionTo: Clip
     transitionLength: 0
-    transitionTargetVolume: 0
     Aa: 0
     transitionAfter: 0
-    transition: Transition to next sound after ___ seconds. If left at 0, time will
-      be set the the length of the clip
     source: {fileID: 0}
   - name: Jump
     clip: {fileID: 8300000, guid: dd6012b6b18f9f34a8df01f061e5aa0b, type: 3}
     mixerGroup: {fileID: 0}
     volumeType: 0
-    loop: 0
-    StartAt: 0
+    FadeInIgnoresStartTime: 0
+    AudioStartAt: 0
     hasStopTime: 0
     StopAt: 0
+    loop: 0
+    isLooping: 0
+    LoopStartAt: 0
+    loopStopAt: 0
     pitch: 1
     pitchVariance: 0.1
     volume: 0.75
+    volumeBackup: 0
     volumeVariance: 0.1
-    SceneQueue: 
-    EndSceneQueue: 
-    SceneQueueTransitionTime: 1
+    ScenesToPlay: []
+    SceneToPlayTransitionTime: 1
+    fadeIn: 1
+    canOverplay: 1
+    isEffectedBySceneTransition: 0
     HasTransition: 0
     transitionTo: Clip
     transitionLength: 0
-    transitionTargetVolume: 0
     Aa: 0
     transitionAfter: 0
-    transition: Transition to next sound after ___ seconds. If left at 0, time will
-      be set the the length of the clip
     source: {fileID: 0}
   - name: Land
     clip: {fileID: 8300000, guid: 82a4d4be8729c854ebf839ccca45567b, type: 3}
     mixerGroup: {fileID: 0}
     volumeType: 0
-    loop: 0
-    StartAt: 0
+    FadeInIgnoresStartTime: 0
+    AudioStartAt: 0
     hasStopTime: 0
     StopAt: 0
+    loop: 0
+    isLooping: 0
+    LoopStartAt: 0
+    loopStopAt: 0
     pitch: 1
     pitchVariance: 0.1
     volume: 0.75
+    volumeBackup: 0
     volumeVariance: 0.1
-    SceneQueue: 
-    EndSceneQueue: 
-    SceneQueueTransitionTime: 1
+    ScenesToPlay: []
+    SceneToPlayTransitionTime: 1
+    fadeIn: 1
+    canOverplay: 1
+    isEffectedBySceneTransition: 0
     HasTransition: 0
     transitionTo: Clip
     transitionLength: 0
-    transitionTargetVolume: 0
     Aa: 0
     transitionAfter: 0
-    transition: Transition to next sound after ___ seconds. If left at 0, time will
-      be set the the length of the clip
     source: {fileID: 0}
   - name: DoubleJump
     clip: {fileID: 8300000, guid: 0d11fd7368b306b4c900241e3dadf28f, type: 3}
     mixerGroup: {fileID: 0}
     volumeType: 0
-    loop: 0
-    StartAt: 0
+    FadeInIgnoresStartTime: 0
+    AudioStartAt: 0
     hasStopTime: 0
     StopAt: 0
+    loop: 0
+    isLooping: 0
+    LoopStartAt: 0
+    loopStopAt: 0
     pitch: 1
     pitchVariance: 0.1
     volume: 0.75
+    volumeBackup: 0
     volumeVariance: 0.1
-    SceneQueue: 
-    EndSceneQueue: 
-    SceneQueueTransitionTime: 1
+    ScenesToPlay: []
+    SceneToPlayTransitionTime: 1
+    fadeIn: 1
+    canOverplay: 1
+    isEffectedBySceneTransition: 0
     HasTransition: 0
     transitionTo: Clip
     transitionLength: 0
-    transitionTargetVolume: 0
     Aa: 0
     transitionAfter: 0
-    transition: Transition to next sound after ___ seconds. If left at 0, time will
-      be set the the length of the clip
     source: {fileID: 0}
   - name: FireballShoot
     clip: {fileID: 8300000, guid: a8c72f1b641c1114cbe504a22151ee5d, type: 3}
     mixerGroup: {fileID: 0}
     volumeType: 0
-    loop: 0
-    StartAt: 0
+    FadeInIgnoresStartTime: 0
+    AudioStartAt: 0
     hasStopTime: 0
     StopAt: 0
+    loop: 0
+    isLooping: 0
+    LoopStartAt: 0
+    loopStopAt: 0
     pitch: 1
     pitchVariance: 0.1
     volume: 0.75
+    volumeBackup: 0
     volumeVariance: 0.1
-    SceneQueue: 
-    EndSceneQueue: 
-    SceneQueueTransitionTime: 1
+    ScenesToPlay: []
+    SceneToPlayTransitionTime: 1
+    fadeIn: 1
+    canOverplay: 1
+    isEffectedBySceneTransition: 0
     HasTransition: 0
     transitionTo: Clip
     transitionLength: 0
-    transitionTargetVolume: 0
     Aa: 0
     transitionAfter: 0
-    transition: Transition to next sound after ___ seconds. If left at 0, time will
-      be set the the length of the clip
     source: {fileID: 0}
   - name: Dash
     clip: {fileID: 8300000, guid: 6d2d16f85c087ea419d323141cd2145c, type: 3}
     mixerGroup: {fileID: 0}
     volumeType: 0
-    loop: 0
-    StartAt: 0
+    FadeInIgnoresStartTime: 0
+    AudioStartAt: 0
     hasStopTime: 0
     StopAt: 0
+    loop: 0
+    isLooping: 0
+    LoopStartAt: 0
+    loopStopAt: 0
     pitch: 1
     pitchVariance: 0.1
     volume: 0.75
+    volumeBackup: 0
     volumeVariance: 0.1
-    SceneQueue: 
-    EndSceneQueue: 
-    SceneQueueTransitionTime: 1
+    ScenesToPlay: []
+    SceneToPlayTransitionTime: 1
+    fadeIn: 1
+    canOverplay: 1
+    isEffectedBySceneTransition: 0
     HasTransition: 0
     transitionTo: Clip
     transitionLength: 0
-    transitionTargetVolume: 0
     Aa: 0
     transitionAfter: 0
-    transition: Transition to next sound after ___ seconds. If left at 0, time will
-      be set the the length of the clip
+    source: {fileID: 0}
+  - name: Click1
+    clip: {fileID: 8300000, guid: 5122b093d142cf746b9ca58d771a90f2, type: 3}
+    mixerGroup: {fileID: 0}
+    volumeType: 0
+    FadeInIgnoresStartTime: 0
+    AudioStartAt: 0
+    hasStopTime: 0
+    StopAt: 0
+    loop: 0
+    isLooping: 0
+    LoopStartAt: 0
+    loopStopAt: 0
+    pitch: 1
+    pitchVariance: 0
+    volume: 0.445
+    volumeBackup: 0
+    volumeVariance: 0
+    ScenesToPlay: []
+    SceneToPlayTransitionTime: 1
+    fadeIn: 1
+    canOverplay: 1
+    isEffectedBySceneTransition: 0
+    HasTransition: 0
+    transitionTo: Clip
+    transitionLength: 0
+    Aa: 0
+    transitionAfter: 0
+    source: {fileID: 0}
+  - name: PickupItem
+    clip: {fileID: 8300000, guid: 70dac7f8f248ca34280629252724a352, type: 3}
+    mixerGroup: {fileID: 0}
+    volumeType: 0
+    FadeInIgnoresStartTime: 0
+    AudioStartAt: 0
+    hasStopTime: 0
+    StopAt: 0
+    loop: 0
+    isLooping: 0
+    LoopStartAt: 0
+    loopStopAt: 0
+    pitch: 1
+    pitchVariance: 0.1
+    volume: 0.446
+    volumeBackup: 0
+    volumeVariance: 0.1
+    ScenesToPlay: []
+    SceneToPlayTransitionTime: 0
+    fadeIn: 1
+    canOverplay: 1
+    isEffectedBySceneTransition: 0
+    HasTransition: 0
+    transitionTo: Clip
+    transitionLength: 0
+    Aa: 0
+    transitionAfter: 0
+    source: {fileID: 0}
+  - name: PowerUp
+    clip: {fileID: 8300000, guid: 92da15c8ca7e48641bea16b5f99eb583, type: 3}
+    mixerGroup: {fileID: 0}
+    volumeType: 0
+    FadeInIgnoresStartTime: 0
+    AudioStartAt: 0
+    hasStopTime: 0
+    StopAt: 0
+    loop: 0
+    isLooping: 0
+    LoopStartAt: 0
+    loopStopAt: 0
+    pitch: 1
+    pitchVariance: 0.1
+    volume: 0.381
+    volumeBackup: 0
+    volumeVariance: 0.1
+    ScenesToPlay: []
+    SceneToPlayTransitionTime: 1
+    fadeIn: 1
+    canOverplay: 1
+    isEffectedBySceneTransition: 0
+    HasTransition: 0
+    transitionTo: Clip
+    transitionLength: 0
+    Aa: 0
+    transitionAfter: 0
+    source: {fileID: 0}
+  - name: PlayerDemoted
+    clip: {fileID: 8300000, guid: c28c9d23d5e28bb409b9d2acac481054, type: 3}
+    mixerGroup: {fileID: 0}
+    volumeType: 0
+    FadeInIgnoresStartTime: 0
+    AudioStartAt: 0
+    hasStopTime: 0
+    StopAt: 0
+    loop: 0
+    isLooping: 0
+    LoopStartAt: 0
+    loopStopAt: 0
+    pitch: 1
+    pitchVariance: 0.1
+    volume: 0.75
+    volumeBackup: 0
+    volumeVariance: 0.1
+    ScenesToPlay: []
+    SceneToPlayTransitionTime: 1
+    fadeIn: 1
+    canOverplay: 1
+    isEffectedBySceneTransition: 0
+    HasTransition: 0
+    transitionTo: Clip
+    transitionLength: 0
+    Aa: 0
+    transitionAfter: 0
+    source: {fileID: 0}
+  - name: FireBounce
+    clip: {fileID: 8300000, guid: 680f73f6897496c44852c770d2e7d62b, type: 3}
+    mixerGroup: {fileID: 0}
+    volumeType: 0
+    FadeInIgnoresStartTime: 0
+    AudioStartAt: 0
+    hasStopTime: 0
+    StopAt: 0
+    loop: 0
+    isLooping: 0
+    LoopStartAt: 0
+    loopStopAt: 0
+    pitch: 1
+    pitchVariance: 0.163
+    volume: 0.217
+    volumeBackup: 0
+    volumeVariance: 0.1
+    ScenesToPlay: []
+    SceneToPlayTransitionTime: 1
+    fadeIn: 1
+    canOverplay: 1
+    isEffectedBySceneTransition: 0
+    HasTransition: 0
+    transitionTo: Clip
+    transitionLength: 0
+    Aa: 0
+    transitionAfter: 0
+    source: {fileID: 0}
+  - name: BreakBlock
+    clip: {fileID: 8300000, guid: 3e0b85404d888b9419010993642752fc, type: 3}
+    mixerGroup: {fileID: 0}
+    volumeType: 0
+    FadeInIgnoresStartTime: 0
+    AudioStartAt: 0
+    hasStopTime: 0
+    StopAt: 0
+    loop: 0
+    isLooping: 0
+    LoopStartAt: 0
+    loopStopAt: 0
+    pitch: 0.557
+    pitchVariance: 0.1
+    volume: 0.472
+    volumeBackup: 0
+    volumeVariance: 0.1
+    ScenesToPlay: []
+    SceneToPlayTransitionTime: 1
+    fadeIn: 1
+    canOverplay: 1
+    isEffectedBySceneTransition: 0
+    HasTransition: 0
+    transitionTo: Clip
+    transitionLength: 0
+    Aa: 0
+    transitionAfter: 0
+    source: {fileID: 0}
+  - name: PlayerDeath
+    clip: {fileID: 8300000, guid: dfb2969eb3a49f642b016a361c7cb601, type: 3}
+    mixerGroup: {fileID: 0}
+    volumeType: 0
+    FadeInIgnoresStartTime: 0
+    AudioStartAt: 0
+    hasStopTime: 0
+    StopAt: 0
+    loop: 0
+    isLooping: 0
+    LoopStartAt: 0
+    loopStopAt: 0
+    pitch: 1
+    pitchVariance: 0.1
+    volume: 0.75
+    volumeBackup: 0
+    volumeVariance: 0.1
+    ScenesToPlay: []
+    SceneToPlayTransitionTime: 1
+    fadeIn: 1
+    canOverplay: 1
+    isEffectedBySceneTransition: 0
+    HasTransition: 0
+    transitionTo: Clip
+    transitionLength: 0
+    Aa: 0
+    transitionAfter: 0
+    source: {fileID: 0}
+  - name: KillEnemy
+    clip: {fileID: 8300000, guid: 46d7fc783afd9a343aa42e556ebf3647, type: 3}
+    mixerGroup: {fileID: 0}
+    volumeType: 0
+    FadeInIgnoresStartTime: 0
+    AudioStartAt: 0
+    hasStopTime: 0
+    StopAt: 0
+    loop: 0
+    isLooping: 0
+    LoopStartAt: 0
+    loopStopAt: 0
+    pitch: 1
+    pitchVariance: 0.1
+    volume: 0.42
+    volumeBackup: 0
+    volumeVariance: 0.1
+    ScenesToPlay: []
+    SceneToPlayTransitionTime: 1
+    fadeIn: 1
+    canOverplay: 1
+    isEffectedBySceneTransition: 0
+    HasTransition: 0
+    transitionTo: Clip
+    transitionLength: 0
+    Aa: 0
+    transitionAfter: 0
+    source: {fileID: 0}
+  - name: ShootBullet
+    clip: {fileID: 8300000, guid: c28c9d23d5e28bb409b9d2acac481054, type: 3}
+    mixerGroup: {fileID: 0}
+    volumeType: 0
+    FadeInIgnoresStartTime: 0
+    AudioStartAt: 0
+    hasStopTime: 0
+    StopAt: 0
+    loop: 0
+    isLooping: 0
+    LoopStartAt: 0
+    loopStopAt: 0
+    pitch: 1
+    pitchVariance: 0.1
+    volume: 0.023
+    volumeBackup: 0
+    volumeVariance: 0.035
+    ScenesToPlay: []
+    SceneToPlayTransitionTime: 1
+    fadeIn: 1
+    canOverplay: 1
+    isEffectedBySceneTransition: 0
+    HasTransition: 0
+    transitionTo: Clip
+    transitionLength: 0
+    Aa: 0
+    transitionAfter: 0
+    source: {fileID: 0}
+  - name: TimedCoinGame
+    clip: {fileID: 8300000, guid: 792c51f73ee15c44b98598b5adb0a43a, type: 3}
+    mixerGroup: {fileID: 0}
+    volumeType: 0
+    FadeInIgnoresStartTime: 0
+    AudioStartAt: 0
+    hasStopTime: 1
+    StopAt: 10
+    loop: 0
+    isLooping: 0
+    LoopStartAt: 0
+    loopStopAt: 0
+    pitch: 1
+    pitchVariance: 0.1
+    volume: 0.51
+    volumeBackup: 0
+    volumeVariance: 0.1
+    ScenesToPlay: []
+    SceneToPlayTransitionTime: 1
+    fadeIn: 0
+    canOverplay: 1
+    isEffectedBySceneTransition: 0
+    HasTransition: 0
+    transitionTo: Clip
+    transitionLength: 0
+    Aa: 0
+    transitionAfter: 0
+    source: {fileID: 0}
+  - name: Song1
+    clip: {fileID: 8300000, guid: 8d05c0d59ea8cc04a91c681c6d99e9ed, type: 3}
+    mixerGroup: {fileID: 0}
+    volumeType: 1
+    FadeInIgnoresStartTime: 0
+    AudioStartAt: 0
+    hasStopTime: 0
+    StopAt: 10
+    loop: 1
+    isLooping: 0
+    LoopStartAt: 0
+    loopStopAt: 0
+    pitch: 1
+    pitchVariance: 0
+    volume: 1.1
+    volumeBackup: 0
+    volumeVariance: 0.1
+    ScenesToPlay:
+    - Level1
+    - Level2
+    SceneToPlayTransitionTime: 1
+    fadeIn: 0
+    canOverplay: 0
+    isEffectedBySceneTransition: 1
+    HasTransition: 0
+    transitionTo: Clip
+    transitionLength: 0
+    Aa: 0
+    transitionAfter: 0
+    source: {fileID: 0}
+  - name: Song2
+    clip: {fileID: 8300000, guid: 25e22186e0cc9944583e60f6a1f1ad1c, type: 3}
+    mixerGroup: {fileID: 0}
+    volumeType: 1
+    FadeInIgnoresStartTime: 0
+    AudioStartAt: 0
+    hasStopTime: 0
+    StopAt: 10
+    loop: 1
+    isLooping: 0
+    LoopStartAt: 0
+    loopStopAt: 0
+    pitch: 1
+    pitchVariance: 0
+    volume: 0.3
+    volumeBackup: 0
+    volumeVariance: 0.1
+    ScenesToPlay:
+    - Level3
+    - Level4
+    SceneToPlayTransitionTime: 1
+    fadeIn: 0
+    canOverplay: 0
+    isEffectedBySceneTransition: 1
+    HasTransition: 0
+    transitionTo: Clip
+    transitionLength: 0
+    Aa: 0
+    transitionAfter: 0
+    source: {fileID: 0}
+  - name: TitleScreen
+    clip: {fileID: 8300000, guid: 06b96802536cc7141ab5ee6ed36cc04e, type: 3}
+    mixerGroup: {fileID: 0}
+    volumeType: 1
+    FadeInIgnoresStartTime: 0
+    AudioStartAt: 0
+    hasStopTime: 0
+    StopAt: 10
+    loop: 1
+    isLooping: 0
+    LoopStartAt: 0
+    loopStopAt: 0
+    pitch: 1
+    pitchVariance: 0
+    volume: 0.3
+    volumeBackup: 0
+    volumeVariance: 0.1
+    ScenesToPlay:
+    - TitleScreen
+    SceneToPlayTransitionTime: 1
+    fadeIn: 0
+    canOverplay: 0
+    isEffectedBySceneTransition: 1
+    HasTransition: 0
+    transitionTo: Clip
+    transitionLength: 0
+    Aa: 0
+    transitionAfter: 0
+    source: {fileID: 0}
+  - name: TimedGameLose
+    clip: {fileID: 8300000, guid: 9a6aa2af18db78a4bbac0f49c66baae6, type: 3}
+    mixerGroup: {fileID: 0}
+    volumeType: 0
+    FadeInIgnoresStartTime: 0
+    AudioStartAt: 0
+    hasStopTime: 0
+    StopAt: 10
+    loop: 0
+    isLooping: 0
+    LoopStartAt: 0
+    loopStopAt: 0
+    pitch: 1
+    pitchVariance: 0.1
+    volume: 0.75
+    volumeBackup: 0
+    volumeVariance: 0.1
+    ScenesToPlay: []
+    SceneToPlayTransitionTime: 1
+    fadeIn: 1
+    canOverplay: 1
+    isEffectedBySceneTransition: 0
+    HasTransition: 0
+    transitionTo: Clip
+    transitionLength: 0
+    Aa: 0
+    transitionAfter: 0
+    source: {fileID: 0}
+  - name: TimedGameCollected
+    clip: {fileID: 8300000, guid: 32b61f48b08550b48b01a81001b47c63, type: 3}
+    mixerGroup: {fileID: 0}
+    volumeType: 0
+    FadeInIgnoresStartTime: 0
+    AudioStartAt: 0
+    hasStopTime: 0
+    StopAt: 10
+    loop: 0
+    isLooping: 0
+    LoopStartAt: 0
+    loopStopAt: 0
+    pitch: 1
+    pitchVariance: 0.311
+    volume: 1.26
+    volumeBackup: 0
+    volumeVariance: 0.1
+    ScenesToPlay: []
+    SceneToPlayTransitionTime: 1
+    fadeIn: 1
+    canOverplay: 1
+    isEffectedBySceneTransition: 0
+    HasTransition: 0
+    transitionTo: Clip
+    transitionLength: 0
+    Aa: 0
+    transitionAfter: 0
+    source: {fileID: 0}
+  - name: TimedGameWin
+    clip: {fileID: 8300000, guid: a0f0e37ad57bf1a458ef47c6542e6e23, type: 3}
+    mixerGroup: {fileID: 0}
+    volumeType: 0
+    FadeInIgnoresStartTime: 0
+    AudioStartAt: 0
+    hasStopTime: 0
+    StopAt: 10
+    loop: 0
+    isLooping: 0
+    LoopStartAt: 0
+    loopStopAt: 0
+    pitch: 1
+    pitchVariance: 0.1
+    volume: 0.75
+    volumeBackup: 0
+    volumeVariance: 0.1
+    ScenesToPlay: []
+    SceneToPlayTransitionTime: 1
+    fadeIn: 1
+    canOverplay: 1
+    isEffectedBySceneTransition: 0
+    HasTransition: 0
+    transitionTo: Clip
+    transitionLength: 0
+    Aa: 0
+    transitionAfter: 0
+    source: {fileID: 0}
+  - name: Checkpoint
+    clip: {fileID: 8300000, guid: c211b920af3374f4bb2d7cbda07a3c3a, type: 3}
+    mixerGroup: {fileID: 0}
+    volumeType: 0
+    FadeInIgnoresStartTime: 0
+    AudioStartAt: 0
+    hasStopTime: 0
+    StopAt: 10
+    loop: 0
+    isLooping: 0
+    LoopStartAt: 0
+    loopStopAt: 0
+    pitch: 1
+    pitchVariance: 0.1
+    volume: 0.75
+    volumeBackup: 0
+    volumeVariance: 0.1
+    ScenesToPlay: []
+    SceneToPlayTransitionTime: 1
+    fadeIn: 1
+    canOverplay: 1
+    isEffectedBySceneTransition: 0
+    HasTransition: 0
+    transitionTo: Clip
+    transitionLength: 0
+    Aa: 0
+    transitionAfter: 0
+    source: {fileID: 0}
+  - name: StarCoinCollected
+    clip: {fileID: 8300000, guid: 2542c89b25f41c64ab4bd84fca4618e8, type: 3}
+    mixerGroup: {fileID: 0}
+    volumeType: 0
+    FadeInIgnoresStartTime: 0
+    AudioStartAt: 0
+    hasStopTime: 0
+    StopAt: 10
+    loop: 0
+    isLooping: 0
+    LoopStartAt: 0
+    loopStopAt: 0
+    pitch: 1
+    pitchVariance: 0.1
+    volume: 0.75
+    volumeBackup: 0
+    volumeVariance: 0.1
+    ScenesToPlay: []
+    SceneToPlayTransitionTime: 1
+    fadeIn: 1
+    canOverplay: 1
+    isEffectedBySceneTransition: 0
+    HasTransition: 0
+    transitionTo: Clip
+    transitionLength: 0
+    Aa: 0
+    transitionAfter: 0
+    source: {fileID: 0}
+  - name: Bouncer
+    clip: {fileID: 8300000, guid: fae259414df68b24caa3fcac61ab8c8b, type: 3}
+    mixerGroup: {fileID: 0}
+    volumeType: 0
+    FadeInIgnoresStartTime: 0
+    AudioStartAt: 0
+    hasStopTime: 0
+    StopAt: 10
+    loop: 0
+    isLooping: 0
+    LoopStartAt: 0
+    loopStopAt: 0
+    pitch: 1
+    pitchVariance: 0.1
+    volume: 0.75
+    volumeBackup: 0
+    volumeVariance: 0.1
+    ScenesToPlay: []
+    SceneToPlayTransitionTime: 1
+    fadeIn: 1
+    canOverplay: 1
+    isEffectedBySceneTransition: 0
+    HasTransition: 0
+    transitionTo: Clip
+    transitionLength: 0
+    Aa: 0
+    transitionAfter: 0
+    source: {fileID: 0}
+  - name: PipeUp
+    clip: {fileID: 8300000, guid: d0f9443f41fa53d438ea18f213e6b4d1, type: 3}
+    mixerGroup: {fileID: 0}
+    volumeType: 0
+    FadeInIgnoresStartTime: 0
+    AudioStartAt: 0
+    hasStopTime: 0
+    StopAt: 10
+    loop: 0
+    isLooping: 0
+    LoopStartAt: 0
+    loopStopAt: 0
+    pitch: 1
+    pitchVariance: 0.1
+    volume: 0.75
+    volumeBackup: 0
+    volumeVariance: 0.1
+    ScenesToPlay: []
+    SceneToPlayTransitionTime: 1
+    fadeIn: 1
+    canOverplay: 1
+    isEffectedBySceneTransition: 0
+    HasTransition: 0
+    transitionTo: Clip
+    transitionLength: 0
+    Aa: 0
+    transitionAfter: 0
+    source: {fileID: 0}
+  - name: PipeDown
+    clip: {fileID: 8300000, guid: 782ad31698db4704f86be2ac2304992d, type: 3}
+    mixerGroup: {fileID: 0}
+    volumeType: 0
+    FadeInIgnoresStartTime: 0
+    AudioStartAt: 0
+    hasStopTime: 0
+    StopAt: 10
+    loop: 0
+    isLooping: 0
+    LoopStartAt: 0
+    loopStopAt: 0
+    pitch: 1
+    pitchVariance: 0.1
+    volume: 0.75
+    volumeBackup: 0
+    volumeVariance: 0.1
+    ScenesToPlay: []
+    SceneToPlayTransitionTime: 1
+    fadeIn: 1
+    canOverplay: 1
+    isEffectedBySceneTransition: 0
+    HasTransition: 0
+    transitionTo: Clip
+    transitionLength: 0
+    Aa: 0
+    transitionAfter: 0
     source: {fileID: 0}
 --- !u!1 &3991757847771670938
 GameObject:
@@ -2536,6 +3157,7 @@ MonoBehaviour:
   PauseMenuCanvas: {fileID: 3991757847881430312}
   PauseMenuButtons: {fileID: 3991757849439802595}
   SettingsMenuButtons: {fileID: 3991757848923666394}
+  PauseButton: {fileID: 3991757848201411420}
 --- !u!1 &3991757849780899648
 GameObject:
   m_ObjectHideFlags: 0
@@ -2815,3 +3437,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasCheckpoint: 0
+  coinCount: 0
+  timerCount: 0

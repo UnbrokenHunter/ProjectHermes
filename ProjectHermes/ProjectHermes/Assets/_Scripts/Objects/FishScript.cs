@@ -31,24 +31,29 @@ namespace ProjectHermes
 		{
 			if (other.gameObject.tag == "Player")
 			{
-				levelManager.IncreaseCoinCount();
+				AddtoCount();     
 				AudioManager.instance.Play("PickupItem");
-				Destroy(this.gameObject);
+				this.gameObject.SetActive(false);
 			}
 		}
 
 		public void FishFromBlock()
 		{
-			levelManager.IncreaseCoinCount();
+			AddtoCount();         
 			AudioManager.instance.Play("PickupItem");
 			animator.SetTrigger("FromBlock");
 			StartCoroutine(DestroyObject());
 		}
-		
+
+		private void AddtoCount()
+		{
+			levelManager.IncreaseCoinCount();
+		}
+
 		private IEnumerator DestroyObject()
 		{
 			yield return new WaitForSeconds(animationLength);
-			Destroy(this.gameObject);
+			this.gameObject.SetActive(false);
 
 		}
 

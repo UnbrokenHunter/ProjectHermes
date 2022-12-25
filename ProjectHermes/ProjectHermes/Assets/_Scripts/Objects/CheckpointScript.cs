@@ -7,29 +7,27 @@ namespace ProjectHermes
 {
     public class CheckpointScript : MonoBehaviour
     {
-		#region User Variables 
-
-
-
-		#endregion
 
 		#region Unity Methods
 
-		private void Awake()
+		private void Start()
 		{
-			if(DoNotDestroy.instance.GetComponentInChildren<CheckpointDoNotDestroy>().hasCheckpoint == true)
+			if (DoNotDestroy.instance.GetComponentInChildren<CheckpointDoNotDestroy>().hasCheckpoint == true)
 			{
 				GameObject.Find("Player").transform.position = transform.position;
+				
 			}
 		}
 
 		private void OnTriggerEnter2D(Collider2D other)
 		{
-			DoNotDestroy.instance.GetComponentInChildren<CheckpointDoNotDestroy>().hasCheckpoint = true;
+			if (other.gameObject.tag != "Player") return;
+			//if (DoNotDestroy.instance.GetComponentInChildren<CheckpointDoNotDestroy>().hasCheckpoint == true) return;
 
+			AudioManager.instance.Play("Checkpoint");
 			GetComponentInChildren<Animator>().SetTrigger("FlagHit");
 
-			// AudioManager.instance.Play()
+			DoNotDestroy.instance.GetComponentInChildren<CheckpointDoNotDestroy>().hasCheckpoint = true;
 		}
 
 		#endregion

@@ -47,12 +47,6 @@ namespace ProjectHermes
 
 		public void ReturnMainMenu()
         {
-            EndLevel end = new EndLevel();
-			foreach (var UI in end.UIElements)
-			{
-				UI.SetActive(true);
-                print(UI);
-			}
 			DoNotDestroy.instance.GetComponentInChildren<ChangeScene>().LoadByString("TitleScreen");
         }
 

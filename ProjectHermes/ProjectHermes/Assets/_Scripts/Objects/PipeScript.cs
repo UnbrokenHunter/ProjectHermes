@@ -159,11 +159,13 @@ namespace ProjectHermes
                     }
                     else
 					{
+                        AudioManager.instance.Play("PipeDown");
                         other.gameObject.GetComponentInChildren<PlayerAnimator>().PlayerEnterPipe();
 
                         other.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
 
                         other.gameObject.GetComponentInChildren<TrailRenderer>().enabled = false;
+                        other.gameObject.GetComponentInChildren<SpriteRenderer>().maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
                         _currentAreaCamera.Priority = 9;
                         other.GetComponentInChildren<PlayerAnimator>()._nextPipe = _exitPipe;
 					}
@@ -174,6 +176,8 @@ namespace ProjectHermes
         public void UpPipe()
 		{
             print("Up Pipe");
+
+            AudioManager.instance.Play("PipeUp");
 
             if(_currentBackground == "Overworld")
 			{
@@ -191,13 +195,14 @@ namespace ProjectHermes
             // Teleport player to pipe
             _player.transform.position = this.transform.position + new Vector3(0, yOffset, 0);
 
-            _player.GetComponent<FireballController>().canShootFireball = true; 
+            _player.GetComponent<FireballController>().canShootFireball = true;
+            _player.gameObject.GetComponentInChildren<SpriteRenderer>().maskInteraction = SpriteMaskInteraction.None;
 
         }
 
-		#endregion
+        #endregion
 
-		#region Spawner
+        #region Spawner
 
         private void HandleEnemySpawns()
 		{

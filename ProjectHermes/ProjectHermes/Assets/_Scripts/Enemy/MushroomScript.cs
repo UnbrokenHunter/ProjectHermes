@@ -17,6 +17,7 @@ namespace ProjectHermes
         [SerializeField] private float shootingRate = 1;
         [SerializeField] private GameObject fireSpot;
         [SerializeField] private float loadingDistance = 30;
+        [SerializeField] private float invincableTime = 0.5f;
         private Animator anim;
 
 		#endregion
@@ -32,12 +33,14 @@ namespace ProjectHermes
 			{
                 transform.localScale = new Vector3(-1, 1, 1);
 			}
+
+            InvokeRepeating("TriggerShot", 1, shootingRate);
+
 		}
 
-		private void Update()
+		private void TriggerShot()
 		{
-            anim.speed = shootingRate;
-
+            anim.SetTrigger("shoot");
         }
 
         public void ShootBullet()
@@ -49,6 +52,7 @@ namespace ProjectHermes
                 bullet.transform.position = fireSpot.transform.position;
                 bullet.GetComponent<BulletScript>().bulletSpeed = bulletSpeed;
                 bullet.GetComponent<BulletScript>().bulletLifespan = bulletLifespan;
+                bullet.GetComponent<BulletScript>().invinsableTime = invincableTime;
 
                 AudioManager.instance.Play("ShootBullet");
 

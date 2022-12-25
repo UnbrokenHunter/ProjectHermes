@@ -4825,6 +4825,8 @@ GameObject:
   - component: {fileID: 5284557735645186319}
   - component: {fileID: 5284557735645186318}
   - component: {fileID: 1422563428451350812}
+  - component: {fileID: 5457458407519123131}
+  - component: {fileID: 2263963078826141908}
   m_Layer: 3
   m_Name: BlockHitbox
   m_TagString: Untagged
@@ -4971,7 +4973,49 @@ MonoBehaviour:
   - {x: 0.5, y: -0.49999976, z: 0}
   m_ShapePathHash: 0
   m_Mesh: {fileID: 0}
-  m_InstanceId: -6550
+  m_InstanceId: 781438
+--- !u!60 &5457458407519123131
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5284557735645186307}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.5, y: 0.55}
+      - {x: -0.5, y: 0.5}
+      - {x: 0.5, y: 0.5}
+      - {x: 0.5, y: 0.55}
+--- !u!114 &2263963078826141908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5284557735645186307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f63b4c6b8e56f4443b55bfc1f8ca60af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyCollision: []
 --- !u!1 &5284557736883262469
 GameObject:
   m_ObjectHideFlags: 0

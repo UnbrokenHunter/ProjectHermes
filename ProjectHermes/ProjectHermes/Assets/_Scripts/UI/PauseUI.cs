@@ -15,6 +15,7 @@ namespace ProjectHermes
         [SerializeField] private GameObject PauseMenuCanvas;
         [SerializeField] private GameObject PauseMenuButtons;
         [SerializeField] private GameObject SettingsMenuButtons;
+        [SerializeField] private GameObject PauseButton;
 
         #endregion
 
@@ -22,7 +23,13 @@ namespace ProjectHermes
         #region Methods
 
         #region Pause
-        public void PauseGame()
+
+        private void OnLevelWasLoaded(int level)
+		{
+			PauseButton.SetActive(true);
+		}
+
+		public void PauseGame()
 		{
             // Stop the game
             Time.timeScale = 0;

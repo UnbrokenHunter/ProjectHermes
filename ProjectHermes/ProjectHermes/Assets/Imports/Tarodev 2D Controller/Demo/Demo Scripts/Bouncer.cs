@@ -13,6 +13,8 @@ namespace TarodevController
 		private void OnCollisionStay2D(Collision2D other)
 		{
 
+			AudioManager.instance.Play("Bouncer");
+
 			// IF JUMPING ADD EXTRA
 			if (other.gameObject.GetComponent<PlayerController>()._frameInput.JumpHeld) jumpBonusStorage = jumpBonus;
 			else jumpBonusStorage = nonJumpMultiplier;

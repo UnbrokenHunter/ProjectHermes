@@ -19,21 +19,17 @@ public class Sound {
 	//    Clip Settings
 	// -------------
 
-	[HorizontalGroup("$name/Split")]
-	[VerticalGroup("$name/Split/Left")]
-	[BoxGroup("$name/Split/Left/Clip")]
 
 	// Clip
 	[HorizontalGroup("$name/Split")]
 	[VerticalGroup("$name/Split/Left")]
-	[BoxGroup("$name/Split/Left/Clip")]
+	[BoxGroup("$name/Split/Left/Audio")]
 	[LabelWidth(130)]
+	[LabelText("Audio Clip")]
 	public AudioClip clip;
 
 	// Mixer Group
-	[HorizontalGroup("$name/Split")]
-	[VerticalGroup("$name/Split/Left")]
-	[BoxGroup("$name/Split/Left/Clip")]
+	[BoxGroup("$name/Split/Left/Audio")]
 	[LabelWidth(130)]
 	public AudioMixerGroup mixerGroup;
 
@@ -42,41 +38,66 @@ public class Sound {
 	//    Effectors
 	// -------------
 
-	[BoxGroup("$name/Split/Left/Effectors")]
 
 	// Volume Type
 	[BoxGroup("$name/Split/Left/Effectors")]
-	[ValueDropdown("VolumeType")]
-	[LabelWidth(130)]
+	[ValueDropdown("_volumeType")]
+	[LabelWidth(170)]
 	public bool volumeType;
-
-	// Loop
-	[BoxGroup("$name/Split/Left/Effectors")]
-	[LabelWidth(130)]
-	public bool loop = false;
 
 	// -------------
 	//   Start And Stop Times
 	// -------------
 
+	// Fade In
 	[BoxGroup("$name/Split/Left/Effectors")]
+	[LabelWidth(170)]
+	[Tooltip("Whether or not fading in should ignore the audio start time")]
+	[LabelText("Fade in Ignores Start Time?")]
+	public bool FadeInIgnoresStartTime = false;
 
 	// Start At
 	[BoxGroup("$name/Split/Left/Effectors")]
-	[LabelWidth(130)]
-	public float StartAt = 0;
+	[LabelWidth(170)]
+	[Tooltip("The timestamp of when the Audio should start at")]
+	[LabelText("Start Audio At: ")]
+	public float AudioStartAt = 0;
 
 	// Has Stop Time
 	[BoxGroup("$name/Split/Left/Effectors")]
-	[LabelWidth(130)]
+	[LabelWidth(170)]
 	public bool hasStopTime = false;
 
 	// Stop At
 	[BoxGroup("$name/Split/Left/Effectors")]
 	[ShowIf("hasStopTime")]
-	[LabelWidth(130)]
+	[LabelWidth(170)]
 	public float StopAt = 0;
 
+	// -------------
+	//    Loop
+	// -------------
+
+	[BoxGroup("$name/Split/Left/Loop")]
+	[LabelWidth(130)]
+	[Tooltip("Whether or not this audio track should loop")]
+	[LabelText("Loop Audio?")]
+	public bool loop = false;
+
+	[HideInInspector]
+	public bool isLooping = false;
+
+	[ShowIfGroup("$name/Split/Left/Loop/loop")]
+	[ShowIf("loop")]
+	[LabelWidth(130)]
+	[LabelText("Start Loop At: ")]
+	[Tooltip("The timestamp of when the Loop should start at")]
+	public float LoopStartAt = 0;
+
+	// Stop At
+	[ShowIfGroup("$name/Split/Left/Loop/loop")]
+	[LabelWidth(130)]
+	public float loopStopAt = 0;
 
 
 	// -------------
@@ -88,7 +109,7 @@ public class Sound {
 	// Pitch
 	[BoxGroup("$name/Split/Right/Pitch")]
 	[LabelWidth(130)]
-	[Range(0f, 1f)]
+	[Range(0f, 2f)]
 	public float pitch = 1f;
 
 
@@ -111,9 +132,11 @@ public class Sound {
 	[VerticalGroup("$name/Split/Right")]
 	[BoxGroup("$name/Split/Right/Volume")]
 	[LabelWidth(130)]
-	[Range(0f, 1f)]
+	[Range(0f, 3f)]
 	public float volume = .75f;
 
+	[HideInInspector]
+	public float volumeBackup;
 
 	// Volume Variance
 	[VerticalGroup("$name/Split/Right")]
@@ -124,37 +147,48 @@ public class Sound {
 
 
 	// -------------
-	//    Queues
+	//  Transitions
 	// -------------
 
-	[VerticalGroup("$name/Split/Right")]
-	[BoxGroup("$name/Split/Right/Queues")]
+	[PropertyTooltip("For Transitions between specific scenes")]
+	[BoxGroup("$name/Split/Right/Transitions")]
 
 	// Scene Queues
-	[VerticalGroup("$name/Split/Right")]
-	[BoxGroup("$name/Split/Right/Queues")]
-	[LabelWidth(130)]
-	public string SceneQueue = "";
-
-	// Scene End Queues
-	[VerticalGroup("$name/Split/Right")]
-	[BoxGroup("$name/Split/Right/Queues")]
-	[LabelWidth(130)]
-	public string EndSceneQueue = "";
+	[BoxGroup("$name/Split/Right/Transitions")]
+	[LabelWidth(190)]
+	[Tooltip("This audio will play when on this scene")]
+	public string[] ScenesToPlay = { };
 
 	// Scene Queues Transition Time
-	[VerticalGroup("$name/Split/Right")]
-	[BoxGroup("$name/Split/Right/Queues")]
+	[BoxGroup("$name/Split/Right/Transitions")]
 	[LabelWidth(190)]
-	public float SceneQueueTransitionTime = 1;
+	[LabelText("Transition Time")]
+	[Tooltip("The transition time between this scene and the previous one")]
+	public float SceneToPlayTransitionTime = 1;
 
+	[BoxGroup("$name/Split/Right/Transitions")]
+	[Tooltip("If given the option, should the audio effect fade in, or start instantly?")]
+	[LabelWidth(190)]
+	[LabelText("Fade In?")]
+	public bool fadeIn = true;
+
+	[BoxGroup("$name/Split/Right/Transitions")]
+	[LabelWidth(190)]
+	[Tooltip("Can a sound be played multiple times, or should it not play again while it is already playing")]
+	[LabelText("Can Overplay?")]
+	public bool canOverplay = true;
+
+	[BoxGroup("$name/Split/Right/Transitions")]
+	[LabelWidth(190)]
+	[LabelText("Is Effected by Transitions?")]
+	[Tooltip("Whether or not this audio should be played/stopped when entering a new scenes")]
+	public bool isEffectedBySceneTransition = false;
 
 	// -----------------
 	//    Transitions
 	// -----------------
+
 	#region Transitions
-
-
 
 	[FoldoutGroup("$name")]
 	[Title("Transition Settings", "", TitleAlignments.Left, true, true)]
@@ -191,14 +225,6 @@ public class Sound {
 	[LabelWidth(160)]
 	public float transitionLength;
 
-	// Transition Target Volume
-	[ShowIf("HasTransition")]
-	[HorizontalGroup("$name/Split2")]
-	[VerticalGroup("$name/Split2/Left2")]
-	[BoxGroup("$name/Split2/Left2/Transition Clip")]
-	[LabelWidth(160)]
-	public float transitionTargetVolume;
-
 
 	// -------------
 	//    
@@ -225,22 +251,10 @@ public class Sound {
 	[ShowIf("HasTransition")]
 	[BoxGroup("$name/Split2/Right2/Transition After")]
 	[LabelWidth(130)]
+	[Tooltip("Transition to next sound after ___ seconds. If left at 0, time will be set the the length of the clip")]
 	public float transitionAfter = 0;
 
-	[ShowIf("HasTransition")]
-	[BoxGroup("$name/Split2/Right2/Transition After")]
-	[LabelWidth(130)]
-	[ReadOnly]
-	[HideLabel]
-	[TextArea]
-	public string transition = "Transition to next sound after ___ seconds. If left at 0, time will be set the the length of the clip";
-
-
 	#endregion
-
-
-
-
 
 	// -------------
 	//    Hidden
@@ -253,7 +267,7 @@ public class Sound {
 	//    Other
 	// -------------
 
-	private static IEnumerable VolumeType = new ValueDropdownList<bool>()
+	private static IEnumerable _volumeType = new ValueDropdownList<bool>()
 	{
 	{ "Music", true },
 	{ "Sound Effect", false },

@@ -107,7 +107,7 @@ namespace ProjectHermes
 		[SerializeField] private float xHitboxSize = 0.935f;
 
 		[OnValueChanged("OrganizeBlocks")]
-		[SerializeField] private float yHitboxOffset = 0.03200114f;
+		[SerializeField] [Range(-5, 5)] private float yHitboxOffset = 0.03200114f;
 
 		#endregion
 

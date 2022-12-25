@@ -142,6 +142,7 @@ MonoBehaviour:
   shootingRate: 2.1
   fireSpot: {fileID: 2344515871966655043}
   loadingDistance: 30
+  invincableTime: 0.32
 --- !u!114 &2344515872143096503
 MonoBehaviour:
   m_ObjectHideFlags: 0

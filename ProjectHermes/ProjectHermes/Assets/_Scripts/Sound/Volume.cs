@@ -17,7 +17,6 @@ public class Volume
 	[BoxGroup("Master Settings/Master Volume")]
 	[LabelWidth(160)]
 	[Range(0f, 3f)]
-	[OnValueChanged("ValueChanged")]
 	public float masterVolume = 1;
 	
 	// Master Volume Slider
@@ -35,7 +34,6 @@ public class Volume
 	[BoxGroup("Volume Settings/Sound Effects")]
 	[LabelWidth(160)]
 	[Range(0f, 3f)]
-	[OnValueChanged("ValueChanged")]
 	public float soundEffectVolume = 1;
 
 	// Sound Effect Slider
@@ -52,18 +50,12 @@ public class Volume
 	[BoxGroup("Volume Settings/Music")]
 	[LabelWidth(160)]
 	[Range(0f, 3f)]
-	[OnValueChanged("ValueChanged")]
 	public float musicVolume = 1;
 
 	// Music Volume Slider
 	[BoxGroup("Volume Settings/Music")]
 	[LabelWidth(180)]
 	public Slider MusicVolumeSlider;
-
-	public void ValueChanged()
-	{
-		AudioManager.instance.ChangeVolume();
-	}
 
 }
 

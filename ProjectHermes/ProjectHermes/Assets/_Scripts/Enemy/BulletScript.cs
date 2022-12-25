@@ -14,6 +14,9 @@ namespace ProjectHermes
         public float bulletSpeed;
         public float bulletLifespan = 5;
         public bool left = false;
+        public float invinsableTime;
+
+        private bool canHit = false;
 
     	#endregion
 
@@ -32,9 +35,18 @@ namespace ProjectHermes
             Destroy(gameObject);
 		}
 
-		private void Start()
+        private IEnumerator InvincableTimer()
+		{
+            yield return new WaitForSeconds(invinsableTime);
+
+            canHit = true;
+		}
+
+
+        private void Start()
 		{
             StartCoroutine(DestroyBullet());
+            StartCoroutine(InvincableTimer());
         }
 
         private void Update()
@@ -51,11 +63,15 @@ namespace ProjectHermes
             
         }
 
-		private void OnTriggerEnter2D(Collider2D collision)
+		private void OnCollisionEnter2D(Collision2D collision)
 		{
-            OnPlayerDeath(collision.gameObject);
-            if(collision.gameObject.tag == "Player") Destroy(gameObject);
+            if (!canHit) return;
 
+            print("Hit");
+
+            if (collision.gameObject.tag == "Player") OnPlayerDeath(collision.gameObject);
+
+            Destroy(gameObject);
         }
 
         #endregion

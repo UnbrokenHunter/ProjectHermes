@@ -11,6 +11,8 @@ namespace ProjectHermes
 		#region Variables 
 
 		public bool hasCheckpoint = false;
+		public int coinCount;
+		public int timerCount;
 
 		#endregion
 
@@ -21,6 +23,7 @@ namespace ProjectHermes
 			if(level == 0)
 			{
 				hasCheckpoint = false;
+				coinCount = 0;
 			}
 		}
 

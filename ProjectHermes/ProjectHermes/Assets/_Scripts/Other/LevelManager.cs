@@ -21,11 +21,24 @@ namespace ProjectHermes
 
     	#region Methods
 
-        public void IncreaseCoinCount()
+		public void SetCoinCount()
+		{
+			this.coinCount = DoNotDestroy.instance.GetComponentInChildren<CheckpointDoNotDestroy>().coinCount;
+			text.text = coinCount.ToString() + "x";
+
+		}
+
+		private void Start()
+		{
+			SetCoinCount();
+			SetTimerCount();
+		}
+
+		public void IncreaseCoinCount()
 		{
             coinCount++;
-
-            text.text = coinCount.ToString() + "x";
+			DoNotDestroy.instance.GetComponentInChildren<CheckpointDoNotDestroy>().coinCount++;
+			text.text = coinCount.ToString() + "x";
 		}
 
 		#endregion
@@ -56,6 +69,11 @@ namespace ProjectHermes
 		private float timeTracker = 0;
 		public int timeCounter = 0;
 
+		private void SetTimerCount()
+		{
+			timeCounter = DoNotDestroy.instance.GetComponentInChildren<CheckpointDoNotDestroy>().timerCount;
+		}
+
 		private void Update()
 		{
 			timeTracker += Time.deltaTime;
@@ -64,6 +82,7 @@ namespace ProjectHermes
 			{
 				timeTracker--;
 				timeCounter++;
+				DoNotDestroy.instance.GetComponentInChildren<CheckpointDoNotDestroy>().timerCount++;
 				timer.text = timerPretext + timeCounter + "";
 			}
 		}

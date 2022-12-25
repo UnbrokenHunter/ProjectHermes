@@ -73,7 +73,7 @@ namespace ProjectHermes
 
 			yield return new WaitForSeconds(transitionLength);
 
-			print(name);
+			print("Now changing to: " + name);
 
 			SceneManager.LoadScene(name);
 

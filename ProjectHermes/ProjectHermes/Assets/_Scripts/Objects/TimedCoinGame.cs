@@ -50,8 +50,12 @@ namespace ProjectHermes
 			{
 				coinCounter += Time.deltaTime;
 
+				// Lose Game
 				if (coinCounter >= coinTimer)
 				{
+					if(!rewardSummoned)
+					AudioManager.instance.Play("TimedGameLose");
+
 					for (int i = 0; i < coins.Length; i++)
 					{
 						Destroy(coinContainer.GetChild(i).gameObject);
@@ -63,6 +67,7 @@ namespace ProjectHermes
 			if(coinsCollected >= coins.Length && !rewardSummoned)
 			{
 				SummonReward();
+				AudioManager.instance.Play("TimedGameWin");
 			}
 
 			if(rewardObject != null && rewardFall)
@@ -73,7 +78,14 @@ namespace ProjectHermes
 
 		private void OnTriggerEnter2D(Collider2D other)
 		{
-			CreateCoins();
+			if (other.gameObject.tag == "Player")
+			{
+
+				AudioManager.FindSound("TimedCoinGame").StopAt = coinTimer;
+				AudioManager.instance.Play("TimedCoinGame");
+
+				CreateCoins();
+			}
 		}
 
 		private void OnDrawGizmos()
@@ -108,7 +120,7 @@ namespace ProjectHermes
 		{
 			coinsCollected++;
 
-			//AudioManager.instance.Play
+			AudioManager.instance.Play("TimedGameCollected");
 		}
 
 		private void SummonReward()

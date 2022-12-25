@@ -44,10 +44,10 @@ namespace ProjectHermes
 
 			levelManager.StarCoinCollected();
 
-			Destroy(gameObject);
-
 			// Animator
-			// AudioManager.instance.Play();
+			AudioManager.instance.Play("StarCoinCollected");
+
+			this.gameObject.SetActive(false);
 
 		}
 
